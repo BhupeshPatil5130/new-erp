@@ -169,10 +169,10 @@ export default function AuditLogsPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-primary-900 flex items-center">
-            <FileText className="mr-3 h-8 w-8 text-primary-600" />
+          <h1 className="text-2xl sm:text-3xl font-bold text-primary-900 flex items-center">
+            <FileText className="mr-3 h-7 w-7 sm:h-8 sm:w-8 text-primary-600" />
             Audit Logs
           </h1>
           <p className="text-gray-600 mt-1">Track all system activities and changes</p>
@@ -200,7 +200,7 @@ export default function AuditLogsPage() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-blue-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Logs</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">{logs.length}</p>
@@ -214,7 +214,7 @@ export default function AuditLogsPage() {
 
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-green-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Today's Activities</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">
@@ -230,7 +230,7 @@ export default function AuditLogsPage() {
 
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-orange-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">High Priority</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">
@@ -246,7 +246,7 @@ export default function AuditLogsPage() {
 
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-purple-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Unique Users</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">
@@ -317,8 +317,9 @@ export default function AuditLogsPage() {
           <CardDescription>Detailed record of all system activities</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="rounded-md border">
-            <Table>
+          <div className="overflow-x-auto">
+            <div className="rounded-md border min-w-[700px]">
+              <Table>
               <TableHeader>
                 <TableRow>
                   <TableHead>Timestamp</TableHead>

@@ -318,8 +318,8 @@ export default function InventoryPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Inventory & Purchase Orders</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Inventory & Purchase Orders</h1>
         <div className="flex gap-2">
           <Dialog open={isAddItemDialogOpen} onOpenChange={setIsAddItemDialogOpen}>
             <DialogTrigger asChild>
@@ -327,13 +327,13 @@ export default function InventoryPage() {
                 <Package className="mr-2 h-4 w-4" /> Add Inventory
               </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[600px]">
+            <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
               <DialogHeader>
                 <DialogTitle>Add New Inventory Item</DialogTitle>
                 <DialogDescription>Enter the details of the new inventory item. Click save when you're done.</DialogDescription>
               </DialogHeader>
               <div className="grid gap-4 py-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="item-name">Item Name</Label>
                     <Input
@@ -359,7 +359,7 @@ export default function InventoryPage() {
                     </Select>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="item-quantity">Quantity</Label>
                     <Input
@@ -420,7 +420,7 @@ export default function InventoryPage() {
                 <ShoppingCart className="mr-2 h-4 w-4" /> Create Purchase Order
               </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[600px]">
+            <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
               <DialogHeader>
                 <DialogTitle>Create Purchase Order</DialogTitle>
                 <DialogDescription>Enter the details of the new purchase order. Click save when you're done.</DialogDescription>
@@ -441,7 +441,7 @@ export default function InventoryPage() {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="po-items">Items</Label>
                     <Textarea
@@ -463,7 +463,7 @@ export default function InventoryPage() {
                     />
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="po-amount">Total Amount (₹)</Label>
                     <Input
@@ -512,7 +512,7 @@ export default function InventoryPage() {
         </TabsList>
 
         <TabsContent value="inventory" className="space-y-4">
-          <div className="flex items-center gap-4 mb-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
             <div className="flex-1 flex items-center gap-2">
               <Input
                 placeholder="Search inventory by name, ID, category..."
@@ -553,6 +553,7 @@ export default function InventoryPage() {
                   <Plus className="mr-2 h-4 w-4" /> Add Item
                 </Button>
               </div>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -628,12 +629,13 @@ export default function InventoryPage() {
                   ))}
                 </TableBody>
               </Table>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
 
         <TabsContent value="purchase-orders" className="space-y-4">
-          <div className="flex items-center gap-4 mb-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
             <div className="flex-1 flex items-center gap-2">
               <Input
                 placeholder="Search purchase orders by ID, supplier..."
@@ -673,6 +675,7 @@ export default function InventoryPage() {
                   <Plus className="mr-2 h-4 w-4" /> Create Order
                 </Button>
               </div>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -754,6 +757,7 @@ export default function InventoryPage() {
                   ))}
                 </TableBody>
               </Table>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -761,14 +765,14 @@ export default function InventoryPage() {
 
       {/* View Item Dialog */}
       <Dialog open={isViewItemDialogOpen} onOpenChange={setIsViewItemDialogOpen}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>Inventory Item Details</DialogTitle>
             <DialogDescription>Detailed information about the inventory item.</DialogDescription>
           </DialogHeader>
           {selectedItem && (
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <h3 className="text-sm font-medium text-gray-500">Item ID</h3>
                   <p>{selectedItem.id}</p>
@@ -813,14 +817,14 @@ export default function InventoryPage() {
 
       {/* Edit Item Dialog */}
       <Dialog open={isEditItemDialogOpen} onOpenChange={setIsEditItemDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Edit Inventory Item</DialogTitle>
             <DialogDescription>Update the details of the inventory item. Click save when you're done.</DialogDescription>
           </DialogHeader>
           {selectedItem && (
             <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-item-name">Item Name</Label>
                   <Input
@@ -846,7 +850,7 @@ export default function InventoryPage() {
                   </Select>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-item-quantity">Quantity</Label>
                   <Input
@@ -905,7 +909,7 @@ export default function InventoryPage() {
 
       {/* Delete Item Dialog */}
       <Dialog open={isDeleteItemDialogOpen} onOpenChange={setIsDeleteItemDialogOpen}>
-        <DialogContent className="sm:max-w-[400px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[400px]">
           <DialogHeader>
             <DialogTitle>Delete Inventory Item</DialogTitle>
             <DialogDescription>
@@ -925,14 +929,14 @@ export default function InventoryPage() {
 
       {/* View PO Dialog */}
       <Dialog open={isViewPODialogOpen} onOpenChange={setIsViewPODialogOpen}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>Purchase Order Details</DialogTitle>
             <DialogDescription>Detailed information about the purchase order.</DialogDescription>
           </DialogHeader>
           {selectedPO && (
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <h3 className="text-sm font-medium text-gray-500">PO ID</h3>
                   <p>{selectedPO.id}</p>
@@ -977,7 +981,7 @@ export default function InventoryPage() {
 
       {/* Edit PO Dialog */}
       <Dialog open={isEditPODialogOpen} onOpenChange={setIsEditPODialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Edit Purchase Order</DialogTitle>
             <DialogDescription>Update the details of the purchase order. Click save when you're done.</DialogDescription>
@@ -1008,7 +1012,7 @@ export default function InventoryPage() {
                   placeholder="Enter items"
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-po-quantity">Quantity</Label>
                   <Input
@@ -1060,7 +1064,7 @@ export default function InventoryPage() {
 
       {/* Delete PO Dialog */}
       <Dialog open={isDeletePODialogOpen} onOpenChange={setIsDeletePODialogOpen}>
-        <DialogContent className="sm:max-w-[400px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[400px]">
           <DialogHeader>
             <DialogTitle>Delete Purchase Order</DialogTitle>
             <DialogDescription>

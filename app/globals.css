@@ -75,3 +75,39 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #0284c7;
 }
+
+/* ── Mobile / Responsive Globals ─────────────────────────── */
+
+/* Prevent any element from causing horizontal page scroll */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* All tables scroll horizontally when they overflow their container */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent iOS from zooming into inputs (font-size < 16px triggers zoom) */
+@media (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Ensure dialogs don't overflow on mobile */
+@media (max-width: 640px) {
+  [role="dialog"] {
+    max-width: calc(100vw - 2rem) !important;
+    margin: 0 1rem;
+  }
+}
+
+/* Better tap target sizing on mobile */
+@media (max-width: 768px) {
+  button, [role="button"], a {
+    min-height: 40px;
+  }
+}

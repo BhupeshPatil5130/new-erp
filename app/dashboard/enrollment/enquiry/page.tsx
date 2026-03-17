@@ -252,40 +252,44 @@ export default function EnquiryPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Enquiry Management</h1>
-        <Button onClick={handleNewEnquiry}>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Enquiry Management</h1>
+        <Button onClick={handleNewEnquiry} className="w-full sm:w-auto">
           <Plus className="mr-2 h-4 w-4" /> New Enquiry
         </Button>
       </div>
 
       <Tabs defaultValue="all" className="space-y-4" onValueChange={handleTabChange}>
-        <TabsList>
-          <TabsTrigger value="all">All Enquiries</TabsTrigger>
-          <TabsTrigger value="new">New</TabsTrigger>
-          <TabsTrigger value="contacted">Contacted</TabsTrigger>
-          <TabsTrigger value="interested">Interested</TabsTrigger>
-          <TabsTrigger value="enrolled">Enrolled</TabsTrigger>
-        </TabsList>
+        <div className="overflow-x-auto">
+          <TabsList className="w-max">
+            <TabsTrigger value="all">All Enquiries</TabsTrigger>
+            <TabsTrigger value="new">New</TabsTrigger>
+            <TabsTrigger value="contacted">Contacted</TabsTrigger>
+            <TabsTrigger value="interested">Interested</TabsTrigger>
+            <TabsTrigger value="enrolled">Enrolled</TabsTrigger>
+          </TabsList>
+        </div>
 
-        <div className="flex items-center gap-4 mb-4">
-          <div className="flex-1 flex items-center gap-2">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
+          <div className="flex flex-1 items-center gap-2">
             <Input
               placeholder="Search by name, ID, phone or email..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="max-w-md"
+              className="flex-1"
             />
-            <Button variant="outline" onClick={handleSearch}>
+            <Button variant="outline" onClick={handleSearch} className="shrink-0">
               <Search className="h-4 w-4 mr-2" /> Search
             </Button>
           </div>
-          <Button variant="outline">
-            <Filter className="h-4 w-4 mr-2" /> Filter
-          </Button>
-          <Button variant="outline">
-            <FileDown className="h-4 w-4 mr-2" /> Export
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="outline" className="flex-1 sm:flex-none">
+              <Filter className="h-4 w-4 mr-2" /> Filter
+            </Button>
+            <Button variant="outline" className="flex-1 sm:flex-none">
+              <FileDown className="h-4 w-4 mr-2" /> Export
+            </Button>
+          </div>
         </div>
 
         <TabsContent value={activeTab} className="space-y-4">
@@ -305,103 +309,107 @@ export default function EnquiryPage() {
               <CardDescription>Manage all student enquiries from this panel</CardDescription>
             </CardHeader>
             <CardContent>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>ID</TableHead>
-                    <TableHead>Name</TableHead>
-                    <TableHead>Phone</TableHead>
-                    <TableHead>Email</TableHead>
-                    <TableHead>Course</TableHead>
-                    <TableHead>Source</TableHead>
-                    <TableHead>Date</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Actions</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {filteredData.length === 0 ? (
-                    <TableRow>
-                      <TableCell colSpan={9} className="text-center py-4 text-muted-foreground">
-                        No enquiries found
-                      </TableCell>
-                    </TableRow>
-                  ) : (
-                    filteredData.map((enquiry) => (
-                      <TableRow key={enquiry.id}>
-                        <TableCell>{enquiry.id}</TableCell>
-                        <TableCell>{enquiry.name}</TableCell>
-                        <TableCell>{enquiry.phone}</TableCell>
-                        <TableCell>{enquiry.email}</TableCell>
-                        <TableCell>{enquiry.course}</TableCell>
-                        <TableCell>{enquiry.source}</TableCell>
-                        <TableCell>{enquiry.date}</TableCell>
-                        <TableCell>
-                          <div
-                            className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
-                              enquiry.status === "New"
-                                ? "bg-blue-100 text-blue-800"
-                                : enquiry.status === "Contacted"
-                                  ? "bg-yellow-100 text-yellow-800"
-                                  : enquiry.status === "Interested"
-                                    ? "bg-green-100 text-green-800"
-                                    : enquiry.status === "Not Interested"
-                                      ? "bg-red-100 text-red-800"
-                                      : "bg-purple-100 text-purple-800"
-                            }`}
-                          >
-                            {enquiry.status}
-                          </div>
-                        </TableCell>
-                        <TableCell>
-                          <div className="flex space-x-1">
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              onClick={() => {
-                                setSelectedEnquiry(enquiry)
-                                setIsViewDialogOpen(true)
-                              }}
-                            >
-                              <Eye className="h-4 w-4" />
-                            </Button>
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              onClick={() => {
-                                setSelectedEnquiry(enquiry)
-                                setIsEditDialogOpen(true)
-                              }}
-                            >
-                              <Edit className="h-4 w-4" />
-                            </Button>
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              onClick={() => {
-                                setSelectedEnquiry(enquiry)
-                                setIsFollowUpDialogOpen(true)
-                              }}
-                            >
-                              <CheckCircle className="h-4 w-4" />
-                            </Button>
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              onClick={() => {
-                                setSelectedEnquiry(enquiry)
-                                setIsDeleteDialogOpen(true)
-                              }}
-                            >
-                              <Trash className="h-4 w-4" />
-                            </Button>
-                          </div>
-                        </TableCell>
+              <div className="overflow-x-auto -mx-6">
+                <div className="inline-block min-w-full align-middle px-6">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="whitespace-nowrap">ID</TableHead>
+                        <TableHead className="whitespace-nowrap">Name</TableHead>
+                        <TableHead className="whitespace-nowrap">Phone</TableHead>
+                        <TableHead className="whitespace-nowrap">Email</TableHead>
+                        <TableHead className="whitespace-nowrap">Course</TableHead>
+                        <TableHead className="whitespace-nowrap">Source</TableHead>
+                        <TableHead className="whitespace-nowrap">Date</TableHead>
+                        <TableHead className="whitespace-nowrap">Status</TableHead>
+                        <TableHead className="whitespace-nowrap">Actions</TableHead>
                       </TableRow>
-                    ))
-                  )}
-                </TableBody>
-              </Table>
+                    </TableHeader>
+                    <TableBody>
+                      {filteredData.length === 0 ? (
+                        <TableRow>
+                          <TableCell colSpan={9} className="text-center py-4 text-muted-foreground">
+                            No enquiries found
+                          </TableCell>
+                        </TableRow>
+                      ) : (
+                        filteredData.map((enquiry) => (
+                          <TableRow key={enquiry.id}>
+                            <TableCell>{enquiry.id}</TableCell>
+                            <TableCell className="whitespace-nowrap">{enquiry.name}</TableCell>
+                            <TableCell className="whitespace-nowrap">{enquiry.phone}</TableCell>
+                            <TableCell>{enquiry.email}</TableCell>
+                            <TableCell className="whitespace-nowrap">{enquiry.course}</TableCell>
+                            <TableCell>{enquiry.source}</TableCell>
+                            <TableCell className="whitespace-nowrap">{enquiry.date}</TableCell>
+                            <TableCell>
+                              <div
+                                className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
+                                  enquiry.status === "New"
+                                    ? "bg-blue-100 text-blue-800"
+                                    : enquiry.status === "Contacted"
+                                      ? "bg-yellow-100 text-yellow-800"
+                                      : enquiry.status === "Interested"
+                                        ? "bg-green-100 text-green-800"
+                                        : enquiry.status === "Not Interested"
+                                          ? "bg-red-100 text-red-800"
+                                          : "bg-purple-100 text-purple-800"
+                                }`}
+                              >
+                                {enquiry.status}
+                              </div>
+                            </TableCell>
+                            <TableCell>
+                              <div className="flex space-x-1">
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  onClick={() => {
+                                    setSelectedEnquiry(enquiry)
+                                    setIsViewDialogOpen(true)
+                                  }}
+                                >
+                                  <Eye className="h-4 w-4" />
+                                </Button>
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  onClick={() => {
+                                    setSelectedEnquiry(enquiry)
+                                    setIsEditDialogOpen(true)
+                                  }}
+                                >
+                                  <Edit className="h-4 w-4" />
+                                </Button>
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  onClick={() => {
+                                    setSelectedEnquiry(enquiry)
+                                    setIsFollowUpDialogOpen(true)
+                                  }}
+                                >
+                                  <CheckCircle className="h-4 w-4" />
+                                </Button>
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  onClick={() => {
+                                    setSelectedEnquiry(enquiry)
+                                    setIsDeleteDialogOpen(true)
+                                  }}
+                                >
+                                  <Trash className="h-4 w-4" />
+                                </Button>
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                        ))
+                      )}
+                    </TableBody>
+                  </Table>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -409,14 +417,14 @@ export default function EnquiryPage() {
 
       {/* View Enquiry Dialog */}
       <Dialog open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Enquiry Details</DialogTitle>
             <DialogDescription>Detailed information about the enquiry.</DialogDescription>
           </DialogHeader>
           {selectedEnquiry && (
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <h3 className="text-sm font-medium text-gray-500">Enquiry ID</h3>
                   <p>{selectedEnquiry.id}</p>
@@ -488,14 +496,14 @@ export default function EnquiryPage() {
 
       {/* Edit Enquiry Dialog */}
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Edit Enquiry</DialogTitle>
             <DialogDescription>Update the enquiry details. Click save when you're done.</DialogDescription>
           </DialogHeader>
           {selectedEnquiry && (
             <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-name">Full Name</Label>
                   <Input
@@ -522,7 +530,7 @@ export default function EnquiryPage() {
                   onChange={(e) => setSelectedEnquiry({ ...selectedEnquiry, email: e.target.value })}
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-course">Interested Course</Label>
                   <Select
@@ -584,7 +592,7 @@ export default function EnquiryPage() {
 
       {/* Delete Confirmation Dialog */}
       <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Confirm Deletion</DialogTitle>
             <DialogDescription>
@@ -604,7 +612,7 @@ export default function EnquiryPage() {
 
       {/* Follow-up Dialog */}
       <Dialog open={isFollowUpDialogOpen} onOpenChange={setIsFollowUpDialogOpen}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>Record Follow-up</DialogTitle>
             <DialogDescription>Record details of your follow-up with this enquiry.</DialogDescription>

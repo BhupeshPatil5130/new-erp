@@ -127,8 +127,8 @@ export default function FeeStructurePage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Fee Structure</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Fee Structure</h1>
         <div className="flex gap-2">
           <Button variant="outline">
             <FileDown className="mr-2 h-4 w-4" /> Export
@@ -147,7 +147,7 @@ export default function FeeStructurePage() {
         </TabsList>
 
         <TabsContent value="structures" className="space-y-4">
-          <div className="flex items-center gap-4 mb-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
             <div className="flex-1 flex items-center gap-2">
               <Input
                 placeholder="Search by name, ID, course..."
@@ -178,6 +178,7 @@ export default function FeeStructurePage() {
               <CardDescription>Manage all fee structures for different courses</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -217,13 +218,14 @@ export default function FeeStructurePage() {
                   ))}
                 </TableBody>
               </Table>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
 
         <TabsContent value="components" className="space-y-4">
-          <div className="flex items-center justify-between mb-4">
-            <Input placeholder="Search components..." className="max-w-md" />
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
+            <Input placeholder="Search components..." className="flex-1" />
             <Button>
               <Plus className="mr-2 h-4 w-4" /> Add Component
             </Button>
@@ -235,6 +237,7 @@ export default function FeeStructurePage() {
               <CardDescription>Manage all fee components that can be used in fee structures</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -276,6 +279,7 @@ export default function FeeStructurePage() {
                   ))}
                 </TableBody>
               </Table>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -339,6 +343,7 @@ export default function FeeStructurePage() {
                       </Card>
                     </div>
 
+                    <div className="overflow-x-auto">
                     <Table>
                       <TableHeader>
                         <TableRow>

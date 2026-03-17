@@ -244,6 +244,7 @@ export default function AcademicPage() {
               </Dialog>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -281,6 +282,8 @@ export default function AcademicPage() {
                   ))}
                 </TableBody>
               </Table>
+            </div>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -345,6 +348,7 @@ export default function AcademicPage() {
               </Dialog>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -383,6 +387,8 @@ export default function AcademicPage() {
                   )}
                 </TableBody>
               </Table>
+            </div>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -445,6 +451,7 @@ export default function AcademicPage() {
               </Dialog>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -495,6 +502,8 @@ export default function AcademicPage() {
                   )}
                 </TableBody>
               </Table>
+            </div>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>

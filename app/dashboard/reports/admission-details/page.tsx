@@ -126,8 +126,8 @@ export default function AdmissionDetailsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Admission Details</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Admission Details</h1>
         <Button>
           <Download className="mr-2 h-4 w-4" /> Export Report
         </Button>
@@ -218,6 +218,7 @@ export default function AdmissionDetailsPage() {
               <CardDescription>Showing {filteredData.length} admission records</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -267,6 +268,8 @@ export default function AdmissionDetailsPage() {
                   ))}
                 </TableBody>
               </Table>
+            </div>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>

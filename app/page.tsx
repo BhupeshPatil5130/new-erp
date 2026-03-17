@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -19,6 +22,8 @@ import {
   type LucideIcon,
   MapPin,
   MessageCircle,
+  Menu,
+  X,
 } from "lucide-react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -130,11 +135,13 @@ const BrandCard = ({ title, description, color, icon: Icon, image }: BrandCardPr
 )
 
 export default function LandingPage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Navigation */}
       <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur-sm shadow-sm">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="container flex h-16 items-center justify-between px-4">
           <div className="flex items-center gap-2">
             <div className="relative h-10 w-40">
               <div className="flex items-center">
@@ -146,52 +153,71 @@ export default function LandingPage() {
               <span className="text-xs tracking-widest text-gray-500">LEARNING</span>
             </div>
           </div>
+
+          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6">
-            <Link href="/" className="text-sm font-medium text-secondary-600">
-              Home
-            </Link>
-            <Link href="#about" className="text-sm font-medium text-gray-500 hover:text-primary-700">
-              About us
-            </Link>
-            <Link href="#nep" className="text-sm font-medium text-gray-500 hover:text-primary-700">
-              NEP 2024
-            </Link>
-            <Link href="#services" className="text-sm font-medium text-gray-500 hover:text-primary-700">
-              Services
-            </Link>
-            <Link href="#brands" className="text-sm font-medium text-gray-500 hover:text-primary-700">
-              Our Brands
-            </Link>
-            <Link href="#director" className="text-sm font-medium text-gray-500 hover:text-primary-700">
-              Director's Desk
-            </Link>
-            <Link href="#career" className="text-sm font-medium text-gray-500 hover:text-primary-700">
-              Career
-            </Link>
-            <Link href="#partner" className="text-sm font-medium text-gray-500 hover:text-primary-700">
-              Become a Partner
-            </Link>
+            <Link href="/" className="text-sm font-medium text-secondary-600">Home</Link>
+            <Link href="#about" className="text-sm font-medium text-gray-500 hover:text-primary-700">About us</Link>
+            <Link href="#nep" className="text-sm font-medium text-gray-500 hover:text-primary-700">NEP 2024</Link>
+            <Link href="#services" className="text-sm font-medium text-gray-500 hover:text-primary-700">Services</Link>
+            <Link href="#brands" className="text-sm font-medium text-gray-500 hover:text-primary-700">Our Brands</Link>
+            <Link href="#director" className="text-sm font-medium text-gray-500 hover:text-primary-700">Director's Desk</Link>
+            <Link href="#career" className="text-sm font-medium text-gray-500 hover:text-primary-700">Career</Link>
+            <Link href="#partner" className="text-sm font-medium text-gray-500 hover:text-primary-700">Become a Partner</Link>
           </nav>
-          <div className="flex items-center gap-4">
+
+          {/* Desktop auth buttons */}
+          <div className="hidden md:flex items-center gap-4">
             <Link href="/login">
-              <Button
-                variant="outline"
-                size="sm"
-                className="border-secondary-300 text-secondary-700 hover:bg-secondary-50"
-              >
-                Log in
-              </Button>
+              <Button variant="outline" size="sm" className="border-secondary-300 text-secondary-700 hover:bg-secondary-50">Log in</Button>
             </Link>
             <Link href="/signup">
-              <Button
-                size="sm"
-                className="bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800"
-              >
-                Sign up
-              </Button>
+              <Button size="sm" className="bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800">Sign up</Button>
             </Link>
           </div>
+
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
+
+        {/* Mobile nav dropdown */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t bg-white px-4 py-4 space-y-3">
+            {[
+              { href: "/", label: "Home" },
+              { href: "#about", label: "About us" },
+              { href: "#nep", label: "NEP 2024" },
+              { href: "#services", label: "Services" },
+              { href: "#brands", label: "Our Brands" },
+              { href: "#director", label: "Director's Desk" },
+              { href: "#career", label: "Career" },
+              { href: "#partner", label: "Become a Partner" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="block text-sm font-medium text-gray-700 hover:text-primary-700 py-1"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <div className="flex gap-3 pt-2 border-t">
+              <Link href="/login" className="flex-1">
+                <Button variant="outline" size="sm" className="w-full border-secondary-300 text-secondary-700">Log in</Button>
+              </Link>
+              <Link href="/signup" className="flex-1">
+                <Button size="sm" className="w-full bg-gradient-to-r from-primary-600 to-primary-700">Sign up</Button>
+              </Link>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}

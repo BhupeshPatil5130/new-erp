@@ -187,7 +187,7 @@ export default function FranchisePartnerPage() {
                 <DialogTitle>Add New Franchise Partner</DialogTitle>
               </DialogHeader>
               <div className="grid gap-4 py-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="partnerName">Partner Name</Label>
                     <Input id="partnerName" placeholder="Enter partner name" />
@@ -197,7 +197,7 @@ export default function FranchisePartnerPage() {
                     <Input id="franchiseName" placeholder="Enter franchise name" />
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="location">Location</Label>
                     <Input id="location" placeholder="Enter location" />
@@ -216,7 +216,7 @@ export default function FranchisePartnerPage() {
                     </Select>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="phone">Phone Number</Label>
                     <Input id="phone" placeholder="Enter phone number" />
@@ -226,7 +226,7 @@ export default function FranchisePartnerPage() {
                     <Input id="email" type="email" placeholder="Enter email" />
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="commission">Commission (%)</Label>
                     <Input id="commission" type="number" placeholder="Enter commission percentage" />

@@ -271,15 +271,15 @@ export default function AdmissionPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Admission Management</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Admission Management</h1>
         <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
           <DialogTrigger asChild>
             <Button>
               <UserPlus className="mr-2 h-4 w-4" /> New Admission
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[600px]">
+          <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
             <DialogHeader>
               <DialogTitle>Add New Admission</DialogTitle>
               <DialogDescription>
@@ -287,7 +287,7 @@ export default function AdmissionPage() {
               </DialogDescription>
             </DialogHeader>
             <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="name">Full Name</Label>
                   <Input
@@ -317,7 +317,7 @@ export default function AdmissionPage() {
                   placeholder="Enter email address"
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="course">Course</Label>
                   <Select onValueChange={(value) => setNewAdmission({ ...newAdmission, course: value })}>
@@ -393,7 +393,7 @@ export default function AdmissionPage() {
           <TabsTrigger value="rejected">Rejected</TabsTrigger>
         </TabsList>
 
-        <div className="flex items-center gap-4 mb-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
           <div className="flex-1 flex items-center gap-2">
             <Input
               placeholder="Search by name, ID, phone, email or course..."
@@ -428,6 +428,7 @@ export default function AdmissionPage() {
               <CardDescription>Manage all student admissions from this panel</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -527,6 +528,8 @@ export default function AdmissionPage() {
                   ))}
                 </TableBody>
               </Table>
+            </div>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -534,14 +537,14 @@ export default function AdmissionPage() {
 
       {/* View Admission Dialog */}
       <Dialog open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Admission Details</DialogTitle>
             <DialogDescription>Detailed information about the admission.</DialogDescription>
           </DialogHeader>
           {selectedAdmission && (
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <h3 className="text-sm font-medium text-gray-500">Admission ID</h3>
                   <p>{selectedAdmission.id}</p>
@@ -644,14 +647,14 @@ export default function AdmissionPage() {
 
       {/* Edit Admission Dialog */}
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Edit Admission</DialogTitle>
             <DialogDescription>Update the admission details. Click save when you're done.</DialogDescription>
           </DialogHeader>
           {selectedAdmission && (
             <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-name">Full Name</Label>
                   <Input
@@ -678,7 +681,7 @@ export default function AdmissionPage() {
                   onChange={(e) => setSelectedAdmission({ ...selectedAdmission, email: e.target.value })}
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-course">Course</Label>
                   <Select
@@ -716,7 +719,7 @@ export default function AdmissionPage() {
                   </Select>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-status">Admission Status</Label>
                   <Select
@@ -773,7 +776,7 @@ export default function AdmissionPage() {
 
       {/* Delete Confirmation Dialog */}
       <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Confirm Deletion</DialogTitle>
             <DialogDescription>
@@ -793,7 +796,7 @@ export default function AdmissionPage() {
 
       {/* Documents Dialog */}
       <Dialog open={isDocumentsDialogOpen} onOpenChange={setIsDocumentsDialogOpen}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>Manage Documents</DialogTitle>
             <DialogDescription>Update the documents submitted for this admission.</DialogDescription>
@@ -838,7 +841,7 @@ export default function AdmissionPage() {
 
       {/* Approve Dialog */}
       <Dialog open={isApproveDialogOpen} onOpenChange={setIsApproveDialogOpen}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>Approve Admission</DialogTitle>
             <DialogDescription>Confirm approval of this admission application.</DialogDescription>

@@ -252,7 +252,7 @@ export default function SystemConfigurationPage() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="space-y-0.5">
                   <Label htmlFor="maintenanceMode">Maintenance Mode</Label>
                   <p className="text-sm text-gray-600">Enable to restrict system access during maintenance</p>
@@ -264,7 +264,7 @@ export default function SystemConfigurationPage() {
                 />
               </div>
 
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="space-y-0.5">
                   <Label htmlFor="debugMode">Debug Mode</Label>
                   <p className="text-sm text-gray-600">Enable detailed logging for troubleshooting</p>
@@ -382,7 +382,7 @@ export default function SystemConfigurationPage() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="space-y-0.5">
                   <Label htmlFor="twoFactorAuth">Two-Factor Authentication</Label>
                   <p className="text-sm text-gray-600">Require 2FA for all user accounts</p>
@@ -469,7 +469,7 @@ export default function SystemConfigurationPage() {
               <CardDescription>Automated backup settings and manual backup options</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="space-y-0.5">
                   <Label htmlFor="autoBackup">Automatic Backup</Label>
                   <p className="text-sm text-gray-600">Enable scheduled automatic backups</p>

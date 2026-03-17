@@ -215,10 +215,10 @@ export default function RoleManagementPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-primary-900 flex items-center">
-            <Shield className="mr-3 h-8 w-8 text-primary-600" />
+          <h1 className="text-2xl sm:text-3xl font-bold text-primary-900 flex items-center">
+            <Shield className="mr-3 h-7 w-7 sm:h-8 sm:w-8 text-primary-600" />
             Role Management
           </h1>
           <p className="text-gray-600 mt-1">Define roles and their permissions</p>
@@ -230,7 +230,7 @@ export default function RoleManagementPage() {
               Create Role
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[600px] max-h-[80vh] overflow-y-auto">
+          <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px] max-h-[80vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle>{editingRole ? "Edit Role" : "Create New Role"}</DialogTitle>
               <DialogDescription>
@@ -303,7 +303,7 @@ export default function RoleManagementPage() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-blue-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Roles</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">{roles.length}</p>
@@ -317,7 +317,7 @@ export default function RoleManagementPage() {
 
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-purple-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Admin Roles</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">
@@ -333,7 +333,7 @@ export default function RoleManagementPage() {
 
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-green-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Active Roles</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">{roles.filter((r) => r.isActive).length}</p>
@@ -347,7 +347,7 @@ export default function RoleManagementPage() {
 
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-orange-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Custom Roles</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">{roles.filter((r) => r.isCustom).length}</p>
@@ -363,7 +363,7 @@ export default function RoleManagementPage() {
       {/* Roles Table */}
       <Card className="border-0 shadow-lg">
         <CardHeader>
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <CardTitle>All Roles</CardTitle>
               <CardDescription>Manage system roles and their permissions</CardDescription>
@@ -380,8 +380,9 @@ export default function RoleManagementPage() {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="rounded-md border">
-            <Table>
+          <div className="overflow-x-auto">
+            <div className="rounded-md border min-w-[600px]">
+              <Table>
               <TableHeader>
                 <TableRow>
                   <TableHead>Role</TableHead>
@@ -466,7 +467,8 @@ export default function RoleManagementPage() {
                   )
                 })}
               </TableBody>
-            </Table>
+              </Table>
+            </div>
           </div>
         </CardContent>
       </Card>

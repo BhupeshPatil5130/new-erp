@@ -244,8 +244,8 @@ export default function DTPViewPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">DTP View</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">DTP View</h1>
         <div className="flex gap-2">
           <Dialog open={isScheduleDialogOpen} onOpenChange={setIsScheduleDialogOpen}>
             <DialogTrigger asChild>
@@ -253,13 +253,13 @@ export default function DTPViewPage() {
                 <Calendar className="mr-2 h-4 w-4" /> Schedule DTP
               </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[600px]">
+            <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
               <DialogHeader>
                 <DialogTitle>Schedule DTP</DialogTitle>
                 <DialogDescription>Schedule a new DTP session for a student.</DialogDescription>
               </DialogHeader>
               <div className="grid gap-4 py-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="schedule-student">Select Student</Label>
                     <Select>
@@ -291,7 +291,7 @@ export default function DTPViewPage() {
                     </Select>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="schedule-start-date">Start Date</Label>
                     <Input id="schedule-start-date" type="date" />
@@ -390,7 +390,7 @@ export default function DTPViewPage() {
                   <Plus className="mr-2 h-4 w-4" /> Add DTP Record
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[600px]">
+              <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
                 <DialogHeader>
                   <DialogTitle>Add New DTP Record</DialogTitle>
                   <DialogDescription>
@@ -398,7 +398,7 @@ export default function DTPViewPage() {
                   </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4 py-4">
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="student-id">Student ID</Label>
                       <Input
@@ -418,7 +418,7 @@ export default function DTPViewPage() {
                       />
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="course">Course</Label>
                       <Select onValueChange={(value) => setNewDTP({ ...newDTP, course: value })}>
@@ -450,7 +450,7 @@ export default function DTPViewPage() {
                       </Select>
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="start-date">Start Date</Label>
                       <Input
@@ -506,6 +506,7 @@ export default function DTPViewPage() {
             </Dialog>
           </div>
 
+          <div className="overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow>
@@ -591,19 +592,20 @@ export default function DTPViewPage() {
               ))}
             </TableBody>
           </Table>
+          </div>
         </CardContent>
       </Card>
 
       {/* View DTP Dialog */}
       <Dialog open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>DTP Record Details</DialogTitle>
             <DialogDescription>Detailed information about the DTP record.</DialogDescription>
           </DialogHeader>
           {selectedDTP && (
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <h3 className="text-sm font-medium text-gray-500">DTP ID</h3>
                   <p>{selectedDTP.id}</p>
@@ -675,14 +677,14 @@ export default function DTPViewPage() {
 
       {/* Edit DTP Dialog */}
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Edit DTP Record</DialogTitle>
             <DialogDescription>Update the DTP record details. Click save when you're done.</DialogDescription>
           </DialogHeader>
           {selectedDTP && (
             <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-student-id">Student ID</Label>
                   <Input
@@ -700,7 +702,7 @@ export default function DTPViewPage() {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-course">Course</Label>
                   <Select
@@ -738,7 +740,7 @@ export default function DTPViewPage() {
                   </Select>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-start-date">Start Date</Label>
                   <Input
@@ -814,7 +816,7 @@ export default function DTPViewPage() {
 
       {/* Delete Confirmation Dialog */}
       <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Confirm Deletion</DialogTitle>
             <DialogDescription>
@@ -834,7 +836,7 @@ export default function DTPViewPage() {
 
       {/* Report Dialog */}
       <Dialog open={isReportDialogOpen} onOpenChange={setIsReportDialogOpen}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>Generate DTP Report</DialogTitle>
             <DialogDescription>Select the report options you want to include.</DialogDescription>

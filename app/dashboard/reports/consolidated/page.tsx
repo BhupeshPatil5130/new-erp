@@ -122,7 +122,7 @@ export default function ConsolidatedReportsPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-3xl font-bold text-primary-900 flex items-center">
             <BarChart3 className="mr-3 h-8 w-8 text-primary-600" />
@@ -154,7 +154,7 @@ export default function ConsolidatedReportsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-blue-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Revenue</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">
@@ -174,7 +174,7 @@ export default function ConsolidatedReportsPage() {
 
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-green-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Students</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">
@@ -194,7 +194,7 @@ export default function ConsolidatedReportsPage() {
 
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-purple-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Active Brands</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">{reportData.summary.activeBrands}</p>
@@ -211,7 +211,7 @@ export default function ConsolidatedReportsPage() {
 
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-orange-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">New Admissions</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">{reportData.summary.newAdmissions}</p>

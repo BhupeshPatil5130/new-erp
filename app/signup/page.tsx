@@ -57,7 +57,7 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-accent-50 via-white to-secondary-50">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-accent-50 via-white to-secondary-50 px-4 py-8">
       <div className="absolute inset-0 bg-gradient-to-br from-accent-100/20 via-transparent to-secondary-100/20"></div>
       <Card className="w-full max-w-md relative z-10 shadow-xl border-0 bg-white/95 backdrop-blur-sm">
         <CardHeader className="space-y-1 text-center">

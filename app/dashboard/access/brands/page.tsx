@@ -181,10 +181,10 @@ export default function BrandPermissionsPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-primary-900 flex items-center">
-            <Shield className="mr-3 h-8 w-8 text-primary-600" />
+          <h1 className="text-2xl sm:text-3xl font-bold text-primary-900 flex items-center">
+            <Shield className="mr-3 h-7 w-7 sm:h-8 sm:w-8 text-primary-600" />
             Brand Permissions
           </h1>
           <p className="text-gray-600 mt-1">Manage module access permissions for each brand in your network</p>
@@ -238,7 +238,7 @@ export default function BrandPermissionsPage() {
       {selectedBrands.length > 0 && (
         <Card className="border-primary-200 bg-primary-50">
           <CardContent className="p-4">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-center gap-2">
                 <Badge variant="secondary">{selectedBrands.length} selected</Badge>
                 <span className="text-sm text-gray-600">Bulk Actions:</span>

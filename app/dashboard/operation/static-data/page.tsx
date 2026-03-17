@@ -125,8 +125,8 @@ export default function StaticDataPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Static Data Management</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Static Data Management</h1>
       </div>
 
       <Tabs defaultValue="courses" className="space-y-4">
@@ -160,6 +160,7 @@ export default function StaticDataPage() {
               <CardDescription>Manage all courses offered by the institutes</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -196,6 +197,8 @@ export default function StaticDataPage() {
                   ))}
                 </TableBody>
               </Table>
+            </div>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -224,6 +227,7 @@ export default function StaticDataPage() {
               <CardDescription>Manage all departments in the institutes</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -258,6 +262,8 @@ export default function StaticDataPage() {
                   ))}
                 </TableBody>
               </Table>
+            </div>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -286,6 +292,7 @@ export default function StaticDataPage() {
               <CardDescription>Manage all subjects taught in the institutes</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -322,13 +329,15 @@ export default function StaticDataPage() {
                   ))}
                 </TableBody>
               </Table>
+            </div>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>
       </Tabs>
       {/* Edit Item Dialog */}
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>Edit {itemType.charAt(0).toUpperCase() + itemType.slice(1)}</DialogTitle>
             <DialogDescription>Update the {itemType} details. Click save when you're done.</DialogDescription>
@@ -345,7 +354,7 @@ export default function StaticDataPage() {
                       onChange={(e) => setSelectedItem({ ...selectedItem, name: e.target.value })}
                     />
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="edit-code">Course Code</Label>
                       <Input
@@ -384,7 +393,7 @@ export default function StaticDataPage() {
                       onChange={(e) => setSelectedItem({ ...selectedItem, name: e.target.value })}
                     />
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="edit-code">Department Code</Label>
                       <Input
@@ -415,7 +424,7 @@ export default function StaticDataPage() {
                       onChange={(e) => setSelectedItem({ ...selectedItem, name: e.target.value })}
                     />
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="edit-code">Subject Code</Label>
                       <Input
@@ -457,7 +466,7 @@ export default function StaticDataPage() {
 
       {/* Delete Confirmation Dialog */}
       <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Confirm Deletion</DialogTitle>
             <DialogDescription>

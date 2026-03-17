@@ -111,9 +111,9 @@ export default function BrandsPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-primary-900">Brand Management</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-primary-900">Brand Management</h1>
           <p className="text-gray-600 mt-1">Manage all brands and their access permissions</p>
         </div>
         <Link href="/dashboard/brands/new">
@@ -128,7 +128,7 @@ export default function BrandsPage() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-blue-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Brands</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">{brands.length}</p>
@@ -142,7 +142,7 @@ export default function BrandsPage() {
 
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-green-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Active Brands</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">{brands.filter((b) => b.isActive).length}</p>
@@ -156,7 +156,7 @@ export default function BrandsPage() {
 
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-purple-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Students</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">
@@ -172,7 +172,7 @@ export default function BrandsPage() {
 
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-orange-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Revenue</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">
@@ -194,8 +194,8 @@ export default function BrandsPage() {
           <CardDescription>Manage brand access, permissions, and settings</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="flex items-center space-x-4 mb-6">
-            <div className="relative flex-1 max-w-sm">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:space-x-4 mb-6">
+            <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
               <Input
                 placeholder="Search brands..."
@@ -206,7 +206,8 @@ export default function BrandsPage() {
             </div>
           </div>
 
-          <div className="rounded-md border">
+          <div className="overflow-x-auto">
+          <div className="rounded-md border min-w-[700px]">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -299,6 +300,7 @@ export default function BrandsPage() {
                 ))}
               </TableBody>
             </Table>
+          </div>
           </div>
         </CardContent>
       </Card>

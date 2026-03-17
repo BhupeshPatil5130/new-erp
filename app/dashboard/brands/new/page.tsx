@@ -77,7 +77,7 @@ export default function NewBrandPage() {
           </Button>
         </Link>
         <div>
-          <h1 className="text-3xl font-bold text-primary-900">Add New Brand</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-primary-900">Add New Brand</h1>
           <p className="text-gray-600 mt-1">Create a new brand and configure its settings</p>
         </div>
       </div>

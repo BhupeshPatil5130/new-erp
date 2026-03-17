@@ -88,8 +88,8 @@ export default function FranchiseHolderPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Franchise Holders</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Franchise Holders</h1>
         <Button>
           <Plus className="mr-2 h-4 w-4" /> Add Franchise Holder
         </Button>
@@ -104,7 +104,7 @@ export default function FranchiseHolderPage() {
           <TabsTrigger value="standard">Standard</TabsTrigger>
         </TabsList>
 
-        <div className="flex items-center gap-4 mb-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
           <div className="flex-1 flex items-center gap-2">
             <Input
               placeholder="Search by name, ID, franchise..."
@@ -137,6 +137,7 @@ export default function FranchiseHolderPage() {
             <CardDescription>Manage all franchise holders</CardDescription>
           </CardHeader>
           <CardContent>
+            <div className="overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -188,6 +189,8 @@ export default function FranchiseHolderPage() {
                 ))}
               </TableBody>
             </Table>
+          </div>
+          </div>
           </CardContent>
         </Card>
       </Tabs>
@@ -244,7 +247,7 @@ export default function FranchiseHolderPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <Label className="text-muted-foreground">Franchise ID</Label>
                         <p className="font-medium">

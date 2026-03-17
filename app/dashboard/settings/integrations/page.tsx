@@ -300,7 +300,7 @@ export default function IntegrationsPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-primary-900">Integrations</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-primary-900">Integrations</h1>
           <p className="text-gray-600 mt-1">Connect and manage third-party services and APIs</p>
         </div>
         <div className="flex items-center gap-2">
@@ -350,7 +350,7 @@ export default function IntegrationsPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <Card>
               <CardContent className="p-6">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-medium text-gray-600">Total Integrations</p>
                     <p className="text-2xl font-bold text-primary-900 mt-1">{mockIntegrations.length}</p>
@@ -362,7 +362,7 @@ export default function IntegrationsPage() {
 
             <Card>
               <CardContent className="p-6">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-medium text-gray-600">Connected</p>
                     <p className="text-2xl font-bold text-green-600 mt-1">
@@ -376,7 +376,7 @@ export default function IntegrationsPage() {
 
             <Card>
               <CardContent className="p-6">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-medium text-gray-600">Disconnected</p>
                     <p className="text-2xl font-bold text-red-600 mt-1">
@@ -390,7 +390,7 @@ export default function IntegrationsPage() {
 
             <Card>
               <CardContent className="p-6">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-medium text-gray-600">Active Webhooks</p>
                     <p className="text-2xl font-bold text-blue-600 mt-1">
@@ -408,7 +408,7 @@ export default function IntegrationsPage() {
             {filteredIntegrations.map((integration) => (
               <Card key={integration.id} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex items-center space-x-3">
                       <div className="text-2xl">{integration.icon}</div>
                       <div>
@@ -494,6 +494,7 @@ export default function IntegrationsPage() {
               <CardDescription>Manage webhook endpoints for real-time event notifications</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <div className="rounded-md border">
                 <Table>
                   <TableHeader>
@@ -555,6 +556,7 @@ export default function IntegrationsPage() {
                       ))}
                   </TableBody>
                 </Table>
+              </div>
               </div>
             </CardContent>
           </Card>

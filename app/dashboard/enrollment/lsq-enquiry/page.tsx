@@ -225,8 +225,8 @@ export default function LSQEnquiryPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Leadersquare Enquiry Management</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Leadersquare Enquiry Management</h1>
         <div className="flex gap-2">
           <Button variant="outline" onClick={openLSQPortal}>
             <ExternalLink className="mr-2 h-4 w-4" /> Open LSQ Portal
@@ -237,7 +237,7 @@ export default function LSQEnquiryPage() {
                 <Plus className="mr-2 h-4 w-4" /> New LSQ Enquiry
               </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[600px]">
+            <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
               <DialogHeader>
                 <DialogTitle>Add New LSQ Enquiry</DialogTitle>
                 <DialogDescription>
@@ -245,7 +245,7 @@ export default function LSQEnquiryPage() {
                 </DialogDescription>
               </DialogHeader>
               <div className="grid gap-4 py-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Full Name</Label>
                     <Input
@@ -275,7 +275,7 @@ export default function LSQEnquiryPage() {
                     placeholder="Enter email address"
                   />
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="course">Interested Course</Label>
                     <Select onValueChange={(value) => setNewEnquiry({ ...newEnquiry, course: value })}>
@@ -338,7 +338,7 @@ export default function LSQEnquiryPage() {
           <TabsTrigger value="converted">Converted</TabsTrigger>
         </TabsList>
 
-        <div className="flex items-center gap-4 mb-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
           <div className="flex-1 flex items-center gap-2">
             <Input
               placeholder="Search by name, ID, phone, email or source..."
@@ -365,6 +365,7 @@ export default function LSQEnquiryPage() {
               <CardDescription>Manage all Leadersquare enquiries from this panel</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -454,6 +455,8 @@ export default function LSQEnquiryPage() {
                   ))}
                 </TableBody>
               </Table>
+            </div>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -463,14 +466,14 @@ export default function LSQEnquiryPage() {
 
       {/* View Enquiry Dialog */}
       <Dialog open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>LSQ Enquiry Details</DialogTitle>
             <DialogDescription>Detailed information about the Leadersquare enquiry.</DialogDescription>
           </DialogHeader>
           {selectedEnquiry && (
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <h3 className="text-sm font-medium text-gray-500">Enquiry ID</h3>
                   <p>{selectedEnquiry.id}</p>
@@ -542,14 +545,14 @@ export default function LSQEnquiryPage() {
 
       {/* Edit Enquiry Dialog */}
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Edit LSQ Enquiry</DialogTitle>
             <DialogDescription>Update the Leadersquare enquiry details. Click save when you're done.</DialogDescription>
           </DialogHeader>
           {selectedEnquiry && (
             <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-name">Full Name</Label>
                   <Input
@@ -576,7 +579,7 @@ export default function LSQEnquiryPage() {
                   onChange={(e) => setSelectedEnquiry({ ...selectedEnquiry, email: e.target.value })}
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-course">Interested Course</Label>
                   <Select
@@ -636,7 +639,7 @@ export default function LSQEnquiryPage() {
 
       {/* Delete Confirmation Dialog */}
       <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Confirm Deletion</DialogTitle>
             <DialogDescription>
@@ -656,7 +659,7 @@ export default function LSQEnquiryPage() {
 
       {/* Follow-up Dialog */}
       <Dialog open={isFollowUpDialogOpen} onOpenChange={setIsFollowUpDialogOpen}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>Record LSQ Follow-up</DialogTitle>
             <DialogDescription>Record details of your follow-up with this Leadersquare enquiry.</DialogDescription>

@@ -107,15 +107,15 @@ export default function DashboardPage() {
     return (
       <div className="space-y-6">
         {/* Header */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <Crown className="h-8 w-8 text-yellow-600" />
+            <Crown className="h-7 w-7 sm:h-8 sm:w-8 text-yellow-600 shrink-0" />
             <div>
-              <h1 className="text-3xl font-bold text-primary-900">Corporate Dashboard</h1>
-              <p className="text-gray-600 mt-1">Manage all brands and monitor performance across the network</p>
+              <h1 className="text-2xl sm:text-3xl font-bold text-primary-900">Corporate Dashboard</h1>
+              <p className="text-gray-600 mt-1 text-sm">Manage all brands and monitor performance across the network</p>
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <Badge variant="outline" className="border-yellow-200 text-yellow-700 bg-yellow-50">
               <Crown className="mr-1 h-3 w-3" />
               Corporate HQ
@@ -333,14 +333,14 @@ export default function DashboardPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-primary-900">Dashboard</h1>
-          <p className="text-gray-600 mt-1">
+          <h1 className="text-2xl sm:text-3xl font-bold text-primary-900">Dashboard</h1>
+          <p className="text-gray-600 mt-1 text-sm">
             Welcome back! Here's what's happening at {currentInstitute?.name || "your institute"} today.
           </p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
           <Badge variant="outline" className="border-secondary-200 text-secondary-700">
             Academic Year 2024-25
           </Badge>

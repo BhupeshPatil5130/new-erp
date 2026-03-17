@@ -143,6 +143,7 @@ export default function UsersPage() {
           </div>
         </CardHeader>
         <CardContent>
+          <div className="overflow-x-auto">
           <div className="rounded-md border">
             <Table>
               <TableHeader>
@@ -205,13 +206,13 @@ export default function UsersPage() {
 
       {/* Add User Dialog */}
       <Dialog open={showAddUserDialog} onOpenChange={setShowAddUserDialog}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>Add New User</DialogTitle>
             <DialogDescription>Create a new user account in the system</DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="first-name">First Name</Label>
                 <Input id="first-name" placeholder="Enter first name" />
@@ -225,7 +226,7 @@ export default function UsersPage() {
               <Label htmlFor="email">Email</Label>
               <Input id="email" type="email" placeholder="Enter email address" />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="role">Role</Label>
                 <Select>
@@ -265,14 +266,14 @@ export default function UsersPage() {
 
       {/* Edit User Dialog */}
       <Dialog open={showEditUserDialog} onOpenChange={setShowEditUserDialog}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>Edit User</DialogTitle>
             <DialogDescription>Update user information</DialogDescription>
           </DialogHeader>
           {selectedUser && (
             <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-first-name">First Name</Label>
                   <Input id="edit-first-name" defaultValue={selectedUser.name.split(" ")[0]} />
@@ -286,7 +287,7 @@ export default function UsersPage() {
                 <Label htmlFor="edit-email">Email</Label>
                 <Input id="edit-email" type="email" defaultValue={selectedUser.email} />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-role">Role</Label>
                   <Select defaultValue={selectedUser.role.toLowerCase()}>
@@ -339,7 +340,7 @@ export default function UsersPage() {
 
       {/* View User Dialog */}
       <Dialog open={showViewUserDialog} onOpenChange={setShowViewUserDialog}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>User Details</DialogTitle>
             <DialogDescription>Detailed information about the user</DialogDescription>
@@ -354,7 +355,7 @@ export default function UsersPage() {
                     .join("")}
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <p className="text-sm font-medium text-muted-foreground">Name</p>
                   <p className="font-medium">{selectedUser.name}</p>

@@ -203,15 +203,15 @@ export default function TransferStagePage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Manage Transfer Stage</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Manage Transfer Stage</h1>
         <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
           <DialogTrigger asChild>
             <Button>
               <ArrowRight className="mr-2 h-4 w-4" /> New Transfer Request
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[600px]">
+          <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
             <DialogHeader>
               <DialogTitle>Create New Transfer Request</DialogTitle>
               <DialogDescription>
@@ -219,7 +219,7 @@ export default function TransferStagePage() {
               </DialogDescription>
             </DialogHeader>
             <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="student-id">Student ID</Label>
                   <Input
@@ -239,7 +239,7 @@ export default function TransferStagePage() {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="current-stage">Current Stage</Label>
                   <Select onValueChange={(value) => setNewTransfer({ ...newTransfer, currentStage: value })}>
@@ -355,6 +355,7 @@ export default function TransferStagePage() {
           <CardDescription>Manage student transfer stage requests</CardDescription>
         </CardHeader>
         <CardContent>
+          <div className="overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow>
@@ -454,19 +455,21 @@ export default function TransferStagePage() {
               ))}
             </TableBody>
           </Table>
+        </div>
+        </div>
         </CardContent>
       </Card>
 
       {/* View Transfer Dialog */}
       <Dialog open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>Transfer Request Details</DialogTitle>
             <DialogDescription>Detailed information about the transfer request.</DialogDescription>
           </DialogHeader>
           {selectedTransfer && (
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <h3 className="text-sm font-medium text-gray-500">Request ID</h3>
                   <p>{selectedTransfer.id}</p>
@@ -532,14 +535,14 @@ export default function TransferStagePage() {
 
       {/* Edit Transfer Dialog */}
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Edit Transfer Request</DialogTitle>
             <DialogDescription>Update the transfer request details. Click save when you're done.</DialogDescription>
           </DialogHeader>
           {selectedTransfer && (
             <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-student-id">Student ID</Label>
                   <Input
@@ -557,7 +560,7 @@ export default function TransferStagePage() {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-current-stage">Current Stage</Label>
                   <Select
@@ -633,7 +636,7 @@ export default function TransferStagePage() {
 
       {/* Delete Confirmation Dialog */}
       <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Confirm Deletion</DialogTitle>
             <DialogDescription>
@@ -653,7 +656,7 @@ export default function TransferStagePage() {
 
       {/* Approve Dialog */}
       <Dialog open={isApproveDialogOpen} onOpenChange={setIsApproveDialogOpen}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>Approve Transfer Request</DialogTitle>
             <DialogDescription>Confirm approval of this transfer stage request.</DialogDescription>
@@ -695,7 +698,7 @@ export default function TransferStagePage() {
 
       {/* Reject Dialog */}
       <Dialog open={isRejectDialogOpen} onOpenChange={setIsRejectDialogOpen}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>Reject Transfer Request</DialogTitle>
             <DialogDescription>Provide a reason for rejecting this transfer stage request.</DialogDescription>

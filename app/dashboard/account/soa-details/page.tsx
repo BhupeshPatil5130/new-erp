@@ -68,8 +68,8 @@ const pendingPayments = [
 export default function SOADetailsPage() {
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Statement of Account - Details</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Statement of Account - Details</h1>
         <div className="flex gap-2">
           <Button variant="outline">
             <Printer className="mr-2 h-4 w-4" /> Print
@@ -90,7 +90,7 @@ export default function SOADetailsPage() {
             <CardDescription>Basic details of the student</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <p className="text-sm font-medium text-muted-foreground">Student ID</p>
                 <p>{studentDetails.id}</p>
@@ -163,6 +163,7 @@ export default function SOADetailsPage() {
           <CardDescription>Breakdown of fee components</CardDescription>
         </CardHeader>
         <CardContent>
+          <div className="overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow>
@@ -183,6 +184,7 @@ export default function SOADetailsPage() {
               </TableRow>
             </TableBody>
           </Table>
+          </div>
         </CardContent>
       </Card>
 
@@ -193,6 +195,7 @@ export default function SOADetailsPage() {
             <CardDescription>Record of all payments made</CardDescription>
           </CardHeader>
           <CardContent>
+            <div className="overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -219,6 +222,7 @@ export default function SOADetailsPage() {
                 ))}
               </TableBody>
             </Table>
+            </div>
           </CardContent>
         </Card>
 
@@ -228,6 +232,7 @@ export default function SOADetailsPage() {
             <CardDescription>Upcoming payment installments</CardDescription>
           </CardHeader>
           <CardContent>
+            <div className="overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -254,6 +259,7 @@ export default function SOADetailsPage() {
                 ))}
               </TableBody>
             </Table>
+            </div>
           </CardContent>
         </Card>
       </div>

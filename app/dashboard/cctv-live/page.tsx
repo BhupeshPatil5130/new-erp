@@ -266,7 +266,7 @@ export default function CCTVLivePage() {
 
       {/* Add/Edit Dialog */}
       <Dialog open={editOpen} onOpenChange={setEditOpen}>
-        <DialogContent>
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-lg">
           <DialogHeader>
             <DialogTitle>{editingId ? "Edit Camera" : "Add Camera"}</DialogTitle>
           </DialogHeader>

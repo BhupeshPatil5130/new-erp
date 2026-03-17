@@ -89,8 +89,8 @@ export default function DamageShortagePage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Damage Reports</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Damage Reports</h1>
         <Button onClick={() => setIsCreating(true)}>
           <Plus className="mr-2 h-4 w-4" /> New Damage Report
         </Button>
@@ -104,7 +104,7 @@ export default function DamageShortagePage() {
           <TabsTrigger value="resolved">Resolved</TabsTrigger>
         </TabsList>
 
-        <div className="flex items-center gap-4 mb-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
           <div className="flex-1 flex items-center gap-2">
             <Input
               placeholder="Search by item name, ID, category..."
@@ -141,6 +141,7 @@ export default function DamageShortagePage() {
               <CardDescription>View and manage all damage reports</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -204,6 +205,8 @@ export default function DamageShortagePage() {
                   ))}
                 </TableBody>
               </Table>
+            </div>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>

@@ -172,10 +172,10 @@ export default function UserManagementPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-primary-900 flex items-center">
-            <Users className="mr-3 h-8 w-8 text-primary-600" />
+          <h1 className="text-2xl sm:text-3xl font-bold text-primary-900 flex items-center">
+            <Users className="mr-3 h-7 w-7 sm:h-8 sm:w-8 text-primary-600" />
             User Management
           </h1>
           <p className="text-gray-600 mt-1">Manage system users and their access levels</p>
@@ -187,7 +187,7 @@ export default function UserManagementPage() {
               Add New User
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[425px]">
+          <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[425px]">
             <DialogHeader>
               <DialogTitle>Add New User</DialogTitle>
               <DialogDescription>Create a new user account with appropriate permissions.</DialogDescription>
@@ -286,7 +286,7 @@ export default function UserManagementPage() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-blue-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Users</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">{users.length}</p>
@@ -300,7 +300,7 @@ export default function UserManagementPage() {
 
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-green-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Active Users</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">{users.filter((u) => u.isActive).length}</p>
@@ -314,7 +314,7 @@ export default function UserManagementPage() {
 
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-purple-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Administrators</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">
@@ -330,7 +330,7 @@ export default function UserManagementPage() {
 
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-orange-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Brands Covered</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">{new Set(users.map((u) => u.brand)).size}</p>
@@ -346,7 +346,7 @@ export default function UserManagementPage() {
       {/* Users Table */}
       <Card className="border-0 shadow-lg">
         <CardHeader>
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <CardTitle>All Users</CardTitle>
               <CardDescription>Manage user accounts and permissions</CardDescription>
@@ -363,8 +363,9 @@ export default function UserManagementPage() {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="rounded-md border">
-            <Table>
+          <div className="overflow-x-auto">
+            <div className="rounded-md border min-w-[700px]">
+              <Table>
               <TableHeader>
                 <TableRow>
                   <TableHead>User</TableHead>
@@ -457,7 +458,8 @@ export default function UserManagementPage() {
                   </TableRow>
                 ))}
               </TableBody>
-            </Table>
+              </Table>
+            </div>
           </div>
         </CardContent>
       </Card>

@@ -206,7 +206,7 @@ export default function ProgramClassPage() {
                 <DialogTitle>Add New Program</DialogTitle>
               </DialogHeader>
               <div className="grid gap-4 py-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="programName">Program Name</Label>
                     <Input id="programName" placeholder="Enter program name" />
@@ -216,7 +216,7 @@ export default function ProgramClassPage() {
                     <Input id="programCode" placeholder="Enter program code" />
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="duration">Duration</Label>
                     <Input id="duration" placeholder="e.g., 4 Years" />
@@ -236,7 +236,7 @@ export default function ProgramClassPage() {
                     </Select>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="fee">Program Fee (₹)</Label>
                     <Input id="fee" type="number" placeholder="Enter program fee" />
@@ -282,7 +282,7 @@ export default function ProgramClassPage() {
                 <DialogTitle>Add New Class</DialogTitle>
               </DialogHeader>
               <div className="grid gap-4 py-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="className">Class Name</Label>
                     <Input id="className" placeholder="Enter class name" />
@@ -303,7 +303,7 @@ export default function ProgramClassPage() {
                     </Select>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="instructor">Instructor</Label>
                     <Input id="instructor" placeholder="Enter instructor name" />
@@ -313,7 +313,7 @@ export default function ProgramClassPage() {
                     <Input id="room" placeholder="Enter room number" />
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="schedule">Schedule</Label>
                     <Input id="schedule" placeholder="e.g., Mon, Wed, Fri 10:00 AM" />
@@ -323,7 +323,7 @@ export default function ProgramClassPage() {
                     <Input id="duration" type="number" placeholder="90" />
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="maxStudents">Max Students</Label>
                     <Input id="maxStudents" type="number" placeholder="30" />

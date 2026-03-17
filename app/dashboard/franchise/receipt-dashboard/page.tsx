@@ -81,8 +81,8 @@ export default function ReceiptDashboardPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Receipt Dashboard</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Receipt Dashboard</h1>
         <div className="flex gap-2">
           <Button variant="outline">
             <BarChart className="mr-2 h-4 w-4" /> Analytics
@@ -96,7 +96,7 @@ export default function ReceiptDashboardPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Card>
           <CardContent className="pt-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-muted-foreground">Total Receipts</p>
                 <h3 className="text-2xl font-bold">₹615,500</h3>
@@ -109,7 +109,7 @@ export default function ReceiptDashboardPage() {
         </Card>
         <Card>
           <CardContent className="pt-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-muted-foreground">Completed Payments</p>
                 <h3 className="text-2xl font-bold">₹517,000</h3>
@@ -122,7 +122,7 @@ export default function ReceiptDashboardPage() {
         </Card>
         <Card>
           <CardContent className="pt-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-muted-foreground">Pending Payments</p>
                 <h3 className="text-2xl font-bold">₹98,500</h3>
@@ -143,7 +143,7 @@ export default function ReceiptDashboardPage() {
           <TabsTrigger value="cash">Cash</TabsTrigger>
         </TabsList>
 
-        <div className="flex items-center gap-4 mb-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
           <div className="flex-1 flex items-center gap-2">
             <Input
               placeholder="Search by receipt ID, franchise, transaction..."
@@ -171,6 +171,7 @@ export default function ReceiptDashboardPage() {
             <CardDescription>View and download all franchise payment receipts</CardDescription>
           </CardHeader>
           <CardContent>
+            <div className="overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -218,6 +219,8 @@ export default function ReceiptDashboardPage() {
                 ))}
               </TableBody>
             </Table>
+          </div>
+          </div>
           </CardContent>
         </Card>
       </Tabs>
@@ -264,7 +267,7 @@ export default function ReceiptDashboardPage() {
               </div>
 
               <div className="border-t border-b py-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">Received From:</p>
                     <p>

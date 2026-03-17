@@ -102,15 +102,15 @@ export function ModuleShell<Row = unknown>(props: ModuleShellProps<Row>) {
 
   return (
     <div className={cn("flex w-full flex-col gap-4", className)}>
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex items-center gap-3">
-          {Icon ? <Icon className="h-6 w-6 text-muted-foreground" /> : null}
-          <div>
-            <h1 className="text-xl font-semibold leading-none">{title}</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div className="flex items-center gap-3 min-w-0">
+          {Icon ? <Icon className="h-6 w-6 text-muted-foreground shrink-0" /> : null}
+          <div className="min-w-0">
+            <h1 className="text-xl font-semibold leading-none truncate">{title}</h1>
             {description ? <p className="mt-1 text-sm text-muted-foreground">{description}</p> : null}
           </div>
         </div>
-        {toolbar ? <div className="flex-shrink-0">{toolbar}</div> : null}
+        {toolbar ? <div className="flex-shrink-0 w-full sm:w-auto">{toolbar}</div> : null}
       </div>
       {kpis ? <KPICards items={kpis} /> : null}
       {children ? <div>{children}</div> : null}

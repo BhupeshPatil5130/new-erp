@@ -132,7 +132,7 @@ export default function HostelPage() {
                 <DialogTitle>Add New Hostel Facility</DialogTitle>
               </DialogHeader>
               <div className="grid gap-4 py-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="hostelName">Hostel Name</Label>
                     <Input id="hostelName" placeholder="Enter hostel name" />
@@ -151,7 +151,7 @@ export default function HostelPage() {
                     </Select>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="capacity">Capacity</Label>
                     <Input id="capacity" type="number" placeholder="Enter capacity" />
@@ -161,7 +161,7 @@ export default function HostelPage() {
                     <Input id="location" placeholder="Enter location" />
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="rent">Monthly Rent (₹)</Label>
                     <Input id="rent" type="number" placeholder="Enter monthly rent" />
@@ -196,7 +196,7 @@ export default function HostelPage() {
                 <DialogTitle>Add New Resident</DialogTitle>
               </DialogHeader>
               <div className="grid gap-4 py-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="residentName">Resident Name</Label>
                     <Input id="residentName" placeholder="Enter resident name" />
@@ -206,7 +206,7 @@ export default function HostelPage() {
                     <Input id="studentId" placeholder="Enter student ID" />
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="hostel">Select Hostel</Label>
                     <Select>
@@ -227,7 +227,7 @@ export default function HostelPage() {
                     <Input id="room" placeholder="Enter room number" />
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="phone">Phone Number</Label>
                     <Input id="phone" placeholder="Enter phone number" />

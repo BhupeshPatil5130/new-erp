@@ -205,8 +205,8 @@ export default function GraduationNameChangePage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Graduation Name Change Confirmation</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Graduation Name Change Confirmation</h1>
         <Button>
           <FileDown className="mr-2 h-4 w-4" /> Export Report
         </Button>
@@ -220,7 +220,7 @@ export default function GraduationNameChangePage() {
           <TabsTrigger value="rejected">Rejected</TabsTrigger>
         </TabsList>
 
-        <div className="flex items-center gap-4 mb-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
           <div className="flex-1 flex items-center gap-2">
             <Input
               placeholder="Search by name, ID, reason..."
@@ -247,6 +247,7 @@ export default function GraduationNameChangePage() {
               <CardDescription>Manage graduation name change requests</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -348,6 +349,8 @@ export default function GraduationNameChangePage() {
                   ))}
                 </TableBody>
               </Table>
+            </div>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -430,14 +433,14 @@ export default function GraduationNameChangePage() {
 
       {/* View Request Dialog */}
       <Dialog open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Name Change Request Details</DialogTitle>
             <DialogDescription>Detailed information about the name change request.</DialogDescription>
           </DialogHeader>
           {selectedRequest && (
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <h3 className="text-sm font-medium text-gray-500">Request ID</h3>
                   <p>{selectedRequest.id}</p>
@@ -512,14 +515,14 @@ export default function GraduationNameChangePage() {
 
       {/* Edit Request Dialog */}
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Edit Name Change Request</DialogTitle>
             <DialogDescription>Update the name change request details. Click save when you're done.</DialogDescription>
           </DialogHeader>
           {selectedRequest && (
             <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-student-id">Student ID</Label>
                   <Input
@@ -583,7 +586,7 @@ export default function GraduationNameChangePage() {
 
       {/* Delete Confirmation Dialog */}
       <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Confirm Deletion</DialogTitle>
             <DialogDescription>
@@ -603,7 +606,7 @@ export default function GraduationNameChangePage() {
 
       {/* Approve Dialog */}
       <Dialog open={isApproveDialogOpen} onOpenChange={setIsApproveDialogOpen}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>Approve Name Change Request</DialogTitle>
             <DialogDescription>Confirm approval of this name change request.</DialogDescription>
@@ -639,7 +642,7 @@ export default function GraduationNameChangePage() {
 
       {/* Reject Dialog */}
       <Dialog open={isRejectDialogOpen} onOpenChange={setIsRejectDialogOpen}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>Reject Name Change Request</DialogTitle>
             <DialogDescription>Provide a reason for rejecting this name change request.</DialogDescription>

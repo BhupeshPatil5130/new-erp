@@ -76,6 +76,7 @@ export default function AccessLevelPage() {
           </div>
         </CardHeader>
         <CardContent>
+          <div className="overflow-x-auto">
           <div className="rounded-md border">
             <Table>
               <TableHeader>

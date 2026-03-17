@@ -85,8 +85,8 @@ export default function AdmissionStatusPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Admission Status</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Admission Status</h1>
         <div className="flex gap-2">
           <Button variant="outline">
             <BarChart className="mr-2 h-4 w-4" /> View Analytics
@@ -175,7 +175,7 @@ export default function AdmissionStatusPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <Card>
               <CardContent className="pt-6">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">Total Admissions</p>
                     <h3 className="text-2xl font-bold">125</h3>
@@ -188,7 +188,7 @@ export default function AdmissionStatusPage() {
             </Card>
             <Card>
               <CardContent className="pt-6">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">Enrolled Students</p>
                     <h3 className="text-2xl font-bold">85</h3>
@@ -201,7 +201,7 @@ export default function AdmissionStatusPage() {
             </Card>
             <Card>
               <CardContent className="pt-6">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">Pending Enrollments</p>
                     <h3 className="text-2xl font-bold">40</h3>
@@ -214,6 +214,7 @@ export default function AdmissionStatusPage() {
             </Card>
           </div>
 
+          <div className="overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow>
@@ -287,6 +288,7 @@ export default function AdmissionStatusPage() {
               ))}
             </TableBody>
           </Table>
+          </div>
         </CardContent>
       </Card>
     </div>

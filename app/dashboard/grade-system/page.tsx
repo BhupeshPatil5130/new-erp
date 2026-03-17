@@ -209,7 +209,7 @@ export default function GradeSystemPage() {
                 <DialogTitle>Add New Grade Scale</DialogTitle>
               </DialogHeader>
               <div className="grid gap-4 py-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="scaleName">Scale Name</Label>
                     <Input id="scaleName" placeholder="Enter scale name" />
@@ -262,7 +262,7 @@ export default function GradeSystemPage() {
                 <DialogTitle>Add Student Grade</DialogTitle>
               </DialogHeader>
               <div className="grid gap-4 py-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="student">Select Student</Label>
                     <Select>
@@ -283,7 +283,7 @@ export default function GradeSystemPage() {
                     <Input id="subject" placeholder="Enter subject name" />
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="score">Score</Label>
                     <Input id="score" type="number" placeholder="Enter score" />

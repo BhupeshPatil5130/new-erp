@@ -134,8 +134,8 @@ export default function SOASummaryPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Statement of Accounts - Summary</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Statement of Accounts - Summary</h1>
         <Button>
           <FileDown className="mr-2 h-4 w-4" /> Export Report
         </Button>
@@ -215,7 +215,7 @@ export default function SOASummaryPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <Card>
               <CardContent className="pt-6">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">Total Fees</p>
                     <h3 className="text-2xl font-bold">₹360,000</h3>
@@ -226,7 +226,7 @@ export default function SOASummaryPage() {
             </Card>
             <Card>
               <CardContent className="pt-6">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">Total Collected</p>
                     <h3 className="text-2xl font-bold">₹210,000</h3>
@@ -237,7 +237,7 @@ export default function SOASummaryPage() {
             </Card>
             <Card>
               <CardContent className="pt-6">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">Total Pending</p>
                     <h3 className="text-2xl font-bold">₹150,000</h3>
@@ -248,6 +248,7 @@ export default function SOASummaryPage() {
             </Card>
           </div>
 
+          <div className="overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow>
@@ -288,6 +289,7 @@ export default function SOASummaryPage() {
                     </div>
                   </TableCell>
                   <TableCell>
+                    <div className="flex flex-wrap gap-1">
                     <Button variant="ghost" size="sm" onClick={() => handleViewSOA(soa)}>
                       <Eye className="h-4 w-4 mr-1" /> Details
                     </Button>
@@ -297,24 +299,26 @@ export default function SOASummaryPage() {
                     <Button variant="ghost" size="sm" className="text-red-600" onClick={() => handleDeleteSOA(soa)}>
                       <Trash className="h-4 w-4 mr-1" /> Delete
                     </Button>
+                    </div>
                   </TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
+          </div>
         </CardContent>
       </Card>
 
       {/* View SOA Dialog */}
       <Dialog open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>SOA Details</DialogTitle>
             <DialogDescription>Detailed information about the Statement of Account.</DialogDescription>
           </DialogHeader>
           {selectedSOA && (
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <h3 className="text-sm font-medium text-gray-500">SOA ID</h3>
                   <p>{selectedSOA.id}</p>
@@ -382,14 +386,14 @@ export default function SOASummaryPage() {
 
       {/* Edit SOA Dialog */}
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Edit SOA</DialogTitle>
             <DialogDescription>Update the Statement of Account details. Click save when you're done.</DialogDescription>
           </DialogHeader>
           {selectedSOA && (
             <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-name">Student Name</Label>
                   <Input
@@ -433,7 +437,7 @@ export default function SOASummaryPage() {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-last-payment-date">Last Payment Date</Label>
                   <Input
@@ -472,7 +476,7 @@ export default function SOASummaryPage() {
 
       {/* Delete Confirmation Dialog */}
       <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Confirm Deletion</DialogTitle>
             <DialogDescription>

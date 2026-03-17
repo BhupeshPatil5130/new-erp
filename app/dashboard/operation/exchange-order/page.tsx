@@ -147,14 +147,14 @@ export default function ExchangeOrderPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Exchange Orders</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Exchange Orders</h1>
         <Button>
           <RefreshCw className="mr-2 h-4 w-4" /> New Exchange Order
         </Button>
       </div>
 
-      <div className="flex items-center gap-4 mb-4">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
         <div className="flex-1 flex items-center gap-2">
           <Input
             placeholder="Search by ID, name, items..."
@@ -180,6 +180,7 @@ export default function ExchangeOrderPage() {
           <CardDescription>Manage item exchange requests from students</CardDescription>
         </CardHeader>
         <CardContent>
+          <div className="overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow>
@@ -259,19 +260,21 @@ export default function ExchangeOrderPage() {
               ))}
             </TableBody>
           </Table>
+        </div>
+        </div>
         </CardContent>
       </Card>
 
       {/* View Order Dialog */}
       <Dialog open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Exchange Order Details</DialogTitle>
             <DialogDescription>Detailed information about the exchange order.</DialogDescription>
           </DialogHeader>
           {selectedOrder && (
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <h3 className="text-sm font-medium text-gray-500">Order ID</h3>
                   <p>{selectedOrder.id}</p>
@@ -337,14 +340,14 @@ export default function ExchangeOrderPage() {
 
       {/* Edit Order Dialog */}
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Edit Exchange Order</DialogTitle>
             <DialogDescription>Update the exchange order details. Click save when you're done.</DialogDescription>
           </DialogHeader>
           {selectedOrder && (
             <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-name">Student Name</Label>
                   <Input
@@ -362,7 +365,7 @@ export default function ExchangeOrderPage() {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-old-item">Old Item</Label>
                   <Input
@@ -380,7 +383,7 @@ export default function ExchangeOrderPage() {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-date">Date</Label>
                   <Input
@@ -430,7 +433,7 @@ export default function ExchangeOrderPage() {
 
       {/* Delete Confirmation Dialog */}
       <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Confirm Deletion</DialogTitle>
             <DialogDescription>

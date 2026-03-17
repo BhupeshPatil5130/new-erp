@@ -86,8 +86,8 @@ export default function TeachingSubjectPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Teaching Subject Allocation</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Teaching Subject Allocation</h1>
         <Button>
           <Plus className="mr-2 h-4 w-4" /> Assign New Subject
         </Button>
@@ -177,7 +177,7 @@ export default function TeachingSubjectPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <Card>
               <CardContent className="pt-6">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">Total Allocations</p>
                     <h3 className="text-2xl font-bold">75</h3>
@@ -190,7 +190,7 @@ export default function TeachingSubjectPage() {
             </Card>
             <Card>
               <CardContent className="pt-6">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">Active Teachers</p>
                     <h3 className="text-2xl font-bold">42</h3>
@@ -203,7 +203,7 @@ export default function TeachingSubjectPage() {
             </Card>
             <Card>
               <CardContent className="pt-6">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">Subjects Covered</p>
                     <h3 className="text-2xl font-bold">28</h3>
@@ -216,6 +216,7 @@ export default function TeachingSubjectPage() {
             </Card>
           </div>
 
+          <div className="overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow>
@@ -263,6 +264,7 @@ export default function TeachingSubjectPage() {
               ))}
             </TableBody>
           </Table>
+          </div>
         </CardContent>
       </Card>
     </div>

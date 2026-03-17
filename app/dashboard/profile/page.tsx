@@ -179,7 +179,7 @@ Maharashtra, India"
 
                 <div className="border-t pt-6">
                   <h3 className="text-lg font-medium mb-4">Two-Factor Authentication</h3>
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <p className="font-medium">Enable Two-Factor Authentication</p>
                       <p className="text-sm text-muted-foreground">Add an extra layer of security to your account</p>
@@ -209,7 +209,7 @@ Maharashtra, India"
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="font-medium">Email Notifications</p>
                     <p className="text-sm text-muted-foreground">Receive email notifications for important updates</p>
@@ -227,7 +227,7 @@ Maharashtra, India"
                   />
                 </div>
 
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="font-medium">SMS Alerts</p>
                     <p className="text-sm text-muted-foreground">Receive SMS alerts for critical actions</p>
@@ -242,7 +242,7 @@ Maharashtra, India"
                   />
                 </div>
 
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="font-medium">Dark Mode</p>
                     <p className="text-sm text-muted-foreground">Switch between light and dark theme</p>

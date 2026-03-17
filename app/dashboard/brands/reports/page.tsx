@@ -248,7 +248,7 @@ export default function BrandReportsPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-primary-900">Brand Reports</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-primary-900">Brand Reports</h1>
           <p className="text-gray-600 mt-1">Generate and manage comprehensive reports across all brands</p>
         </div>
         <div className="flex items-center gap-2">
@@ -574,6 +574,7 @@ export default function BrandReportsPage() {
               <CardDescription>Manage your automated report schedules</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <div className="rounded-md border">
                 <Table>
                   <TableHeader>
@@ -618,6 +619,7 @@ export default function BrandReportsPage() {
                   </TableBody>
                 </Table>
               </div>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -641,6 +643,7 @@ export default function BrandReportsPage() {
                 </div>
               </div>
 
+              <div className="overflow-x-auto">
               <div className="rounded-md border">
                 <Table>
                   <TableHeader>
@@ -684,6 +687,7 @@ export default function BrandReportsPage() {
                     ))}
                   </TableBody>
                 </Table>
+              </div>
               </div>
             </CardContent>
           </Card>

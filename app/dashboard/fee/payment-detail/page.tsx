@@ -245,8 +245,8 @@ export default function PaymentDetailPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Payment Details</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Payment Details</h1>
         <Button>
           <Download className="mr-2 h-4 w-4" /> Export All
         </Button>
@@ -259,7 +259,7 @@ export default function PaymentDetailPage() {
           <TabsTrigger value="cheque">Cheque Payments</TabsTrigger>
         </TabsList>
 
-        <div className="flex items-center gap-4 mb-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
           <div className="flex-1 flex items-center gap-2">
             <Input
               placeholder="Search by name, ID, transaction ID..."
@@ -286,6 +286,7 @@ export default function PaymentDetailPage() {
               <CardDescription>View all online payment transactions</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -341,6 +342,7 @@ export default function PaymentDetailPage() {
                   ))}
                 </TableBody>
               </Table>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -352,6 +354,7 @@ export default function PaymentDetailPage() {
               <CardDescription>View all cash payment transactions</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -385,6 +388,7 @@ export default function PaymentDetailPage() {
                   ))}
                 </TableBody>
               </Table>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -396,6 +400,7 @@ export default function PaymentDetailPage() {
               <CardDescription>View all cheque payment transactions</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -442,6 +447,7 @@ export default function PaymentDetailPage() {
                   ))}
                 </TableBody>
               </Table>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -449,14 +455,14 @@ export default function PaymentDetailPage() {
 
       {/* View Payment Dialog */}
       <Dialog open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Payment Details</DialogTitle>
             <DialogDescription>Detailed information about the payment.</DialogDescription>
           </DialogHeader>
           {selectedPayment && (
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <h3 className="text-sm font-medium text-gray-500">Payment ID</h3>
                   <p>{selectedPayment.id}</p>
@@ -516,14 +522,14 @@ export default function PaymentDetailPage() {
 
       {/* Edit Payment Dialog */}
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Edit Payment</DialogTitle>
             <DialogDescription>Update the payment details. Click save when you're done.</DialogDescription>
           </DialogHeader>
           {selectedPayment && (
             <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-name">Student Name</Label>
                   <Input
@@ -541,7 +547,7 @@ export default function PaymentDetailPage() {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-date">Date</Label>
                   <Input
@@ -589,7 +595,7 @@ export default function PaymentDetailPage() {
 
       {/* Delete Confirmation Dialog */}
       <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Confirm Deletion</DialogTitle>
             <DialogDescription>

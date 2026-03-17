@@ -146,8 +146,8 @@ export default function PurchaseOrderPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Purchase Orders</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Purchase Orders</h1>
         <Button>
           <ShoppingCart className="mr-2 h-4 w-4" /> Create Purchase Order
         </Button>
@@ -161,7 +161,7 @@ export default function PurchaseOrderPage() {
         </TabsList>
 
         <TabsContent value="orders" className="space-y-4">
-          <div className="flex items-center gap-4 mb-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
             <div className="flex-1 flex items-center gap-2">
               <Input
                 placeholder="Search by PO ID, supplier, items..."
@@ -196,6 +196,7 @@ export default function PurchaseOrderPage() {
               <CardDescription>Manage all purchase orders</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -262,13 +263,15 @@ export default function PurchaseOrderPage() {
                   ))}
                 </TableBody>
               </Table>
+            </div>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>
 
         <TabsContent value="suppliers" className="space-y-4">
           <div className="flex items-center justify-between mb-4">
-            <Input placeholder="Search suppliers..." className="max-w-md" />
+            <Input placeholder="Search suppliers..." className="flex-1" />
             <Button>
               <Plus className="mr-2 h-4 w-4" /> Add Supplier
             </Button>
@@ -280,6 +283,7 @@ export default function PurchaseOrderPage() {
               <CardDescription>Manage all suppliers</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -309,6 +313,8 @@ export default function PurchaseOrderPage() {
                   ))}
                 </TableBody>
               </Table>
+            </div>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -447,14 +453,14 @@ export default function PurchaseOrderPage() {
       </Tabs>
       {/* View PO Dialog */}
       <Dialog open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Purchase Order Details</DialogTitle>
             <DialogDescription>Detailed information about the purchase order.</DialogDescription>
           </DialogHeader>
           {selectedPO && (
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <h3 className="text-sm font-medium text-gray-500">PO ID</h3>
                   <p>{selectedPO.id}</p>
@@ -522,14 +528,14 @@ export default function PurchaseOrderPage() {
 
       {/* Edit PO Dialog */}
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Edit Purchase Order</DialogTitle>
             <DialogDescription>Update the purchase order details. Click save when you're done.</DialogDescription>
           </DialogHeader>
           {selectedPO && (
             <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-supplier">Supplier</Label>
                   <Input
@@ -548,7 +554,7 @@ export default function PurchaseOrderPage() {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-expected-delivery">Expected Delivery</Label>
                   <Input
@@ -584,7 +590,7 @@ export default function PurchaseOrderPage() {
                   onChange={(e) => setSelectedPO({ ...selectedPO, items: e.target.value })}
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="edit-quantity">Quantity</Label>
                   <Input
@@ -615,7 +621,7 @@ export default function PurchaseOrderPage() {
 
       {/* Delete Confirmation Dialog */}
       <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Confirm Deletion</DialogTitle>
             <DialogDescription>

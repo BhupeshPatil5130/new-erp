@@ -103,7 +103,7 @@ export default function SettingsPage() {
                   <Textarea id="footer-text" defaultValue="© 2025 ERP Education System. All rights reserved." />
                 </div>
 
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="font-medium">Maintenance Mode</p>
                     <p className="text-sm text-muted-foreground">
@@ -144,7 +144,7 @@ export default function SettingsPage() {
                 <div className="space-y-4">
                   <h3 className="text-lg font-medium">Email Notifications</h3>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <p className="font-medium">New Enrollment</p>
                       <p className="text-sm text-muted-foreground">Send email when a new student enrolls</p>
@@ -152,7 +152,7 @@ export default function SettingsPage() {
                     <Switch defaultChecked />
                   </div>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <p className="font-medium">Fee Payment</p>
                       <p className="text-sm text-muted-foreground">Send email when a fee payment is received</p>
@@ -160,7 +160,7 @@ export default function SettingsPage() {
                     <Switch defaultChecked />
                   </div>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <p className="font-medium">System Updates</p>
                       <p className="text-sm text-muted-foreground">Send email about system updates and maintenance</p>
@@ -172,7 +172,7 @@ export default function SettingsPage() {
                 <div className="space-y-4 pt-6 border-t">
                   <h3 className="text-lg font-medium">SMS Notifications</h3>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <p className="font-medium">Fee Due Reminder</p>
                       <p className="text-sm text-muted-foreground">Send SMS reminders for fee payments</p>
@@ -180,7 +180,7 @@ export default function SettingsPage() {
                     <Switch defaultChecked />
                   </div>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <p className="font-medium">Admission Confirmation</p>
                       <p className="text-sm text-muted-foreground">Send SMS when admission is confirmed</p>

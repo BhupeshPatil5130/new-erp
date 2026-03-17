@@ -83,8 +83,8 @@ export default function ReportShortagePage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Report Shortage</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Report Shortage</h1>
         <Button onClick={() => setIsCreating(true)}>
           <Plus className="mr-2 h-4 w-4" /> New Shortage Report
         </Button>
@@ -98,7 +98,7 @@ export default function ReportShortagePage() {
           <TabsTrigger value="resolved">Resolved</TabsTrigger>
         </TabsList>
 
-        <div className="flex items-center gap-4 mb-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
           <div className="flex-1 flex items-center gap-2">
             <Input
               placeholder="Search by item name, ID, category..."
@@ -135,6 +135,7 @@ export default function ReportShortagePage() {
               <CardDescription>View and manage all shortage reports</CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -196,6 +197,8 @@ export default function ReportShortagePage() {
                   ))}
                 </TableBody>
               </Table>
+            </div>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>

@@ -110,7 +110,7 @@ export default function FranchiseTypePage() {
                 <Label htmlFor="description">Description</Label>
                 <Textarea id="description" placeholder="Enter description" />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="royalty">Royalty Percentage</Label>
                   <Input id="royalty" type="number" placeholder="e.g. 15" />
@@ -161,6 +161,7 @@ export default function FranchiseTypePage() {
           </div>
         </CardHeader>
         <CardContent>
+          <div className="overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow>
@@ -205,6 +206,8 @@ export default function FranchiseTypePage() {
               )}
             </TableBody>
           </Table>
+        </div>
+        </div>
         </CardContent>
       </Card>
     </div>

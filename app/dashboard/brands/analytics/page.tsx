@@ -166,7 +166,7 @@ export default function BrandAnalyticsPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-primary-900">Brand Analytics</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-primary-900">Brand Analytics</h1>
           <p className="text-gray-600 mt-1">Comprehensive performance analysis across all brands</p>
         </div>
         <div className="flex items-center gap-2">
@@ -209,7 +209,7 @@ export default function BrandAnalyticsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-blue-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Revenue</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">
@@ -231,7 +231,7 @@ export default function BrandAnalyticsPage() {
 
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-purple-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Students</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">
@@ -253,7 +253,7 @@ export default function BrandAnalyticsPage() {
 
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-green-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Active Brands</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">
@@ -272,7 +272,7 @@ export default function BrandAnalyticsPage() {
 
         <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-orange-50">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Satisfaction</p>
                 <p className="text-2xl font-bold text-primary-900 mt-1">

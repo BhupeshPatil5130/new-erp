@@ -148,8 +148,8 @@ export default function StaffAssessmentPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">Staff Assessment</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Staff Assessment</h1>
         <div className="flex gap-2">
           <Button variant="outline" onClick={handleExportAssessments}>
             <FileDown className="mr-2 h-4 w-4" /> Export
@@ -219,6 +219,7 @@ export default function StaffAssessmentPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
+              <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -273,6 +274,8 @@ export default function StaffAssessmentPage() {
                   )}
                 </TableBody>
               </Table>
+            </div>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>

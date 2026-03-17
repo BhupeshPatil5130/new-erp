@@ -147,7 +147,7 @@ Karnataka, India"
             <CardContent>
               <div className="space-y-4">
                 <div className="rounded-md border p-4">
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <p className="font-medium">Franchise Agreement</p>
                       <p className="text-sm text-muted-foreground">Uploaded on: Jan 15, 2020</p>
@@ -164,7 +164,7 @@ Karnataka, India"
                 </div>
 
                 <div className="rounded-md border p-4">
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <p className="font-medium">Business Registration</p>
                       <p className="text-sm text-muted-foreground">Uploaded on: Jan 16, 2020</p>
@@ -181,7 +181,7 @@ Karnataka, India"
                 </div>
 
                 <div className="rounded-md border p-4">
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <p className="font-medium">Tax Certificate</p>
                       <p className="text-sm text-muted-foreground">Uploaded on: Jan 17, 2020</p>
