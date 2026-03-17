@@ -429,7 +429,8 @@ export default function AdmissionPage() {
             </CardHeader>
             <CardContent>
               <div className="overflow-x-auto">
-              <Table>
+              <div className="rounded-md border min-w-[700px]">
+                <Table>
                 <TableHeader>
                   <TableRow>
                     <TableHead>ID</TableHead>
@@ -528,7 +529,7 @@ export default function AdmissionPage() {
                   ))}
                 </TableBody>
               </Table>
-            </div>
+              </div>
             </div>
             </CardContent>
           </Card>

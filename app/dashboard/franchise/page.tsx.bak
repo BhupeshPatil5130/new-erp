@@ -326,36 +326,17 @@ export default function FranchisePage() {
                   </TableBody>
                 </Table>
               </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    </TabsContent>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
 
-    <TabsContent value="royalty" className="space-y-4">
-      <Card>
-        <CardHeader className="pb-3">
-          <div className="flex items-center justify-between">
-            <CardTitle>Royalty Payments</CardTitle>
-            <Button
-              onClick={() => toast({ title: "Generate Invoice", description: "Generating royalty invoices" })}
-            >
-              <Plus className="mr-2 h-4 w-4" /> Generate Invoices
-            </Button>
-          </div>
-          <CardDescription>Track and manage royalty payments from franchises</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="flex items-center space-x-2 mb-4">
-            <div className="flex-1 flex space-x-2">
-              <Input
-                placeholder="Search royalty payments..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <Button variant="outline" onClick={() => handleSearch("royalty")}>
-                <Search className="h-4 w-4 mr-2" /> Search
-              </Button>
+        <TabsContent value="royalty" className="space-y-4">
+          <Card>
+            <CardHeader className="pb-3">
+              <div className="flex items-center justify-between">
+                <CardTitle>Royalty Payments</CardTitle>
+                <Button
                   onClick={() => toast({ title: "Generate Invoice", description: "Generating royalty invoices" })}
                 >
                   <Plus className="mr-2 h-4 w-4" /> Generate Invoices
@@ -455,8 +436,6 @@ export default function FranchisePage() {
                     ))}
                   </TableBody>
                 </Table>
-              </div>
-            </div>
               </div>
               </div>
             </CardContent>

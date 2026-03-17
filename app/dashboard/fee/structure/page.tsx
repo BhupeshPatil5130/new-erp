@@ -179,7 +179,8 @@ export default function FeeStructurePage() {
             </CardHeader>
             <CardContent>
               <div className="overflow-x-auto">
-              <Table>
+              <div className="rounded-md border min-w-[700px]">
+                <Table>
                 <TableHeader>
                   <TableRow>
                     <TableHead>Structure ID</TableHead>
@@ -219,6 +220,7 @@ export default function FeeStructurePage() {
                 </TableBody>
               </Table>
               </div>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -238,7 +240,8 @@ export default function FeeStructurePage() {
             </CardHeader>
             <CardContent>
               <div className="overflow-x-auto">
-              <Table>
+              <div className="rounded-md border min-w-[700px]">
+                <Table>
                 <TableHeader>
                   <TableRow>
                     <TableHead>Component ID</TableHead>
@@ -280,6 +283,7 @@ export default function FeeStructurePage() {
                 </TableBody>
               </Table>
               </div>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -344,7 +348,7 @@ export default function FeeStructurePage() {
                     </div>
 
                     <div className="overflow-x-auto">
-                    <Table>
+                      <Table>
                       <TableHeader>
                         <TableRow>
                           <TableHead>Component</TableHead>
@@ -365,8 +369,9 @@ export default function FeeStructurePage() {
                       </TableBody>
                     </Table>
                   </div>
-                )}
+                  )}
               </div>
+            </div>
             </CardContent>
           </Card>
         </TabsContent>

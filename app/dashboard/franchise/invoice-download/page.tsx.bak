@@ -186,10 +186,10 @@ export default function InvoiceDownloadPage() {
               ))}
             </TableBody>
           </Table>
-              </div>
-            </div>
-            </CardContent>
-          </Card>
+        </div>
+        </div>
+        </CardContent>
+      </Card>
 
       {selectedInvoice && (
         <Card>
@@ -317,8 +317,6 @@ export default function InvoiceDownloadPage() {
                   </TableRow>
                 </TableBody>
               </Table>
-              </div>
-            </div>
 
               <div className="space-y-2">
                 <h3 className="font-bold">Payment Terms:</h3>

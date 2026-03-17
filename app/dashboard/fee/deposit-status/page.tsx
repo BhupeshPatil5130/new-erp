@@ -158,7 +158,8 @@ export default function DepositStatusPage() {
         </CardHeader>
         <CardContent>
           <div className="overflow-x-auto">
-          <Table>
+          <div className="rounded-md border min-w-[700px]">
+            <Table>
             <TableHeader>
               <TableRow>
                 <TableHead>Deposit ID</TableHead>
@@ -207,7 +208,7 @@ export default function DepositStatusPage() {
               ))}
             </TableBody>
           </Table>
-        </div>
+          </div>
         </div>
         </CardContent>
       </Card>

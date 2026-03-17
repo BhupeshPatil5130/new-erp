@@ -142,7 +142,8 @@ export default function FundTransferPage() {
             </CardHeader>
             <CardContent>
               <div className="overflow-x-auto">
-              <Table>
+              <div className="rounded-md border min-w-[700px]">
+                <Table>
                 <TableHeader>
                   <TableRow>
                     <TableHead>Transfer ID</TableHead>
@@ -188,7 +189,7 @@ export default function FundTransferPage() {
                   ))}
                 </TableBody>
               </Table>
-            </div>
+              </div>
             </div>
             </CardContent>
           </Card>
@@ -202,7 +203,8 @@ export default function FundTransferPage() {
             </CardHeader>
             <CardContent>
               <div className="overflow-x-auto">
-              <Table>
+              <div className="rounded-md border min-w-[700px]">
+                <Table>
                 <TableHeader>
                   <TableRow>
                     <TableHead>Account ID</TableHead>
@@ -230,7 +232,7 @@ export default function FundTransferPage() {
                   ))}
                 </TableBody>
               </Table>
-            </div>
+              </div>
             </div>
             </CardContent>
           </Card>

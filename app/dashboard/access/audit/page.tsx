@@ -377,6 +377,7 @@ export default function AuditLogsPage() {
                 ))}
               </TableBody>
             </Table>
+            </div>
           </div>
         </CardContent>
       </Card>

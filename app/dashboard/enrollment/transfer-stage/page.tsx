@@ -356,7 +356,8 @@ export default function TransferStagePage() {
         </CardHeader>
         <CardContent>
           <div className="overflow-x-auto">
-          <Table>
+          <div className="rounded-md border min-w-[700px]">
+            <Table>
             <TableHeader>
               <TableRow>
                 <TableHead>Request ID</TableHead>
@@ -455,7 +456,7 @@ export default function TransferStagePage() {
               ))}
             </TableBody>
           </Table>
-        </div>
+          </div>
         </div>
         </CardContent>
       </Card>

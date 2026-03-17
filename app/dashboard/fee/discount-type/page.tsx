@@ -198,7 +198,8 @@ export default function DiscountTypePage() {
             </CardHeader>
             <CardContent>
               <div className="overflow-x-auto">
-              <Table>
+              <div className="rounded-md border min-w-[700px]">
+                <Table>
                 <TableHeader>
                   <TableRow>
                     <TableHead>ID</TableHead>
@@ -241,7 +242,7 @@ export default function DiscountTypePage() {
                   ))}
                 </TableBody>
               </Table>
-            </div>
+              </div>
             </div>
             </CardContent>
           </Card>
@@ -280,7 +281,8 @@ export default function DiscountTypePage() {
             </CardHeader>
             <CardContent>
               <div className="overflow-x-auto">
-              <Table>
+              <div className="rounded-md border min-w-[700px]">
+                <Table>
                 <TableHeader>
                   <TableRow>
                     <TableHead>Application ID</TableHead>
@@ -338,7 +340,7 @@ export default function DiscountTypePage() {
                   ))}
                 </TableBody>
               </Table>
-            </div>
+              </div>
             </div>
             </CardContent>
           </Card>
