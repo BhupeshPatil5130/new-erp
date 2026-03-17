@@ -297,7 +297,6 @@ export default function EnquiryDetailsPage() {
             </TableBody>
           </Table>
         </div>
-        </div>
         </CardContent>
       </Card>
     </div>

@@ -231,7 +231,7 @@ export default function BrandsPage() {
                           <AvatarFallback>
                             {brand.name
                               .split(" ")
-                              .map((word) => word[0])
+                              .map((word: string) => word[0])
                               .join("")}
                           </AvatarFallback>
                         </Avatar>

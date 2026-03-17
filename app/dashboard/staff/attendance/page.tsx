@@ -197,7 +197,6 @@ export default function StaffAttendancePage() {
             </TableBody>
           </Table>
         </div>
-        </div>
         </CardContent>
       </Card>
     </div>

@@ -283,7 +283,6 @@ export default function AcademicPage() {
                 </TableBody>
               </Table>
             </div>
-            </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -387,7 +386,6 @@ export default function AcademicPage() {
                   )}
                 </TableBody>
               </Table>
-            </div>
             </div>
             </CardContent>
           </Card>
@@ -502,7 +500,6 @@ export default function AcademicPage() {
                   )}
                 </TableBody>
               </Table>
-            </div>
             </div>
             </CardContent>
           </Card>

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogClose } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { arrayToCsv, downloadCsv } from "@/lib/csv"
+import { arrayToCsv, downloadCsv, parseCsv} from "@/lib/csv"
 import { EllipsisVertical } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
@@ -64,7 +64,8 @@ export default function OfflineExamsPage() {
   }
   const onDelete = (id: string) => setRows((prev) => prev.filter((p) => p.id !== id))
   const onExport = () => downloadCsv("exams_offline.csv", arrayToCsv(rows))
-  const onImport = (rowsCsv: Record<string, string>[]) => {
+  const onImport = (text: string) => {
+    const rowsCsv = parseCsv<Record<string, string>>(text)
     const mapped: Exam[] = rowsCsv.map((r) => ({
       id: r.id || `EX-${Math.floor(10 + Math.random() * 90)}`,
       name: r.name || "",

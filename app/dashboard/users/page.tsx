@@ -201,6 +201,7 @@ export default function UsersPage() {
               </TableBody>
             </Table>
           </div>
+          </div>
         </CardContent>
       </Card>
 

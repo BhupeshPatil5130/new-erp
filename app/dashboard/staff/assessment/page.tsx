@@ -275,7 +275,6 @@ export default function StaffAssessmentPage() {
                 </TableBody>
               </Table>
             </div>
-            </div>
             </CardContent>
           </Card>
         </TabsContent>

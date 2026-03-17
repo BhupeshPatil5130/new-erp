@@ -87,7 +87,7 @@ export default function NewEnquiryPage() {
       } else {
         toast({
           title: "Error",
-          description: response.error || "Failed to create enquiry",
+          description: "Failed to create enquiry",
           variant: "destructive",
         })
       }

@@ -305,7 +305,7 @@ export default function AuditLogsPage() {
                 ))}
               </SelectContent>
             </Select>
-            <DatePickerWithRange date={dateRange} setDate={setDateRange} />
+            <DatePickerWithRange date={dateRange} />
           </div>
         </CardContent>
       </Card>
@@ -347,7 +347,7 @@ export default function AuditLogsPage() {
                           <AvatarFallback>
                             {log.user
                               .split(" ")
-                              .map((word) => word[0])
+                              .map((word: string) => word[0])
                               .join("")}
                           </AvatarFallback>
                         </Avatar>

@@ -174,7 +174,6 @@ export default function TransportPage() {
               {
                 label: "Status",
                 key: "status",
-                value: statusFilter,
                 options: [
                   { label: "All", value: "all" },
                   { label: "Active", value: "active" },

@@ -261,7 +261,6 @@ export default function ExchangeOrderPage() {
             </TableBody>
           </Table>
         </div>
-        </div>
         </CardContent>
       </Card>
 

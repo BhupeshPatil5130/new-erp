@@ -264,7 +264,6 @@ export default function PurchaseOrderPage() {
                 </TableBody>
               </Table>
             </div>
-            </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -313,7 +312,6 @@ export default function PurchaseOrderPage() {
                   ))}
                 </TableBody>
               </Table>
-            </div>
             </div>
             </CardContent>
           </Card>

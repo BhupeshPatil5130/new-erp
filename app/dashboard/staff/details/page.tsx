@@ -240,7 +240,6 @@ export default function StaffDetailsPage() {
                 </TableBody>
               </Table>
             </div>
-            </div>
             </CardContent>
           </Card>
         </TabsContent>

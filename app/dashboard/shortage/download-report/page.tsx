@@ -187,7 +187,6 @@ export default function DownloadReportPage() {
             </TableBody>
           </Table>
         </div>
-        </div>
         </CardContent>
       </Card>
 

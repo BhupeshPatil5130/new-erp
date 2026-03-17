@@ -198,7 +198,6 @@ export default function ReportShortagePage() {
                 </TableBody>
               </Table>
             </div>
-            </div>
             </CardContent>
           </Card>
         </TabsContent>

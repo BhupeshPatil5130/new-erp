@@ -317,8 +317,6 @@ export default function InvoiceDownloadPage() {
                   </TableRow>
                 </TableBody>
               </Table>
-              </div>
-            </div>
 
               <div className="space-y-2">
                 <h3 className="font-bold">Payment Terms:</h3>

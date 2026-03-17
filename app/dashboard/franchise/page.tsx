@@ -215,9 +215,9 @@ export default function FranchisePage() {
 
       <Tabs defaultValue="agreements" className="space-y-4">
         <TabsList>
-          <TabsTrigger value="agreements">Agreements & Licensing</TabsTrigger>
+          <TabsTrigger value="agreements">Agreements &amp; Licensing</TabsTrigger>
           <TabsTrigger value="royalty">Royalty Management</TabsTrigger>
-          <TabsTrigger value="onboarding">Onboarding & Compliance</TabsTrigger>
+          <TabsTrigger value="onboarding">Onboarding &amp; Compliance</TabsTrigger>
         </TabsList>
 
         <TabsContent value="agreements" className="space-y-4">
@@ -259,103 +259,83 @@ export default function FranchisePage() {
               </div>
 
               <div className="overflow-x-auto">
-              <div className="rounded-md border">
                 <div className="rounded-md border min-w-[700px]">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>ID</TableHead>
-                      <TableHead>Franchise Name</TableHead>
-                      <TableHead>Owner</TableHead>
-                      <TableHead>Start Date</TableHead>
-                      <TableHead>End Date</TableHead>
-                      <TableHead>Royalty Rate</TableHead>
-                      <TableHead>Status</TableHead>
-                      <TableHead>Actions</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {filteredAgreements.map((agreement) => (
-                      <TableRow key={agreement.id}>
-                        <TableCell className="font-medium">{agreement.id}</TableCell>
-                        <TableCell>{agreement.franchiseName}</TableCell>
-                        <TableCell>{agreement.owner}</TableCell>
-                        <TableCell>{agreement.startDate}</TableCell>
-                        <TableCell>{agreement.endDate}</TableCell>
-                        <TableCell>{agreement.royaltyRate}</TableCell>
-                        <TableCell>
-                          <span
-                            className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
-                              agreement.status === "Active"
-                                ? "bg-green-100 text-green-800"
-                                : agreement.status === "Pending"
-                                  ? "bg-yellow-100 text-yellow-800"
-                                  : "bg-red-100 text-red-800"
-                            }`}
-                          >
-                            {agreement.status}
-                          </span>
-                        </TableCell>
-                        <TableCell>
-                          <div className="flex space-x-1">
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              onClick={() => handleAction("View", agreement, "agreement")}
-                            >
-                              <Eye className="h-4 w-4" />
-                            </Button>
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              onClick={() => handleAction("Edit", agreement, "agreement")}
-                            >
-                              <Edit className="h-4 w-4" />
-                            </Button>
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              onClick={() => handleAction("Download", agreement, "agreement")}
-                            >
-                              <Download className="h-4 w-4" />
-                            </Button>
-                          </div>
-                        </TableCell>
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>ID</TableHead>
+                        <TableHead>Franchise Name</TableHead>
+                        <TableHead>Owner</TableHead>
+                        <TableHead>Start Date</TableHead>
+                        <TableHead>End Date</TableHead>
+                        <TableHead>Royalty Rate</TableHead>
+                        <TableHead>Status</TableHead>
+                        <TableHead>Actions</TableHead>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                    </TableHeader>
+                    <TableBody>
+                      {filteredAgreements.map((agreement) => (
+                        <TableRow key={agreement.id}>
+                          <TableCell className="font-medium">{agreement.id}</TableCell>
+                          <TableCell>{agreement.franchiseName}</TableCell>
+                          <TableCell>{agreement.owner}</TableCell>
+                          <TableCell>{agreement.startDate}</TableCell>
+                          <TableCell>{agreement.endDate}</TableCell>
+                          <TableCell>{agreement.royaltyRate}</TableCell>
+                          <TableCell>
+                            <span
+                              className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
+                                agreement.status === "Active"
+                                  ? "bg-green-100 text-green-800"
+                                  : agreement.status === "Pending"
+                                    ? "bg-yellow-100 text-yellow-800"
+                                    : "bg-red-100 text-red-800"
+                              }`}
+                            >
+                              {agreement.status}
+                            </span>
+                          </TableCell>
+                          <TableCell>
+                            <div className="flex space-x-1">
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={() => handleAction("View", agreement, "agreement")}
+                              >
+                                <Eye className="h-4 w-4" />
+                              </Button>
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={() => handleAction("Edit", agreement, "agreement")}
+                              >
+                                <Edit className="h-4 w-4" />
+                              </Button>
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={() => handleAction("Download", agreement, "agreement")}
+                              >
+                                <Download className="h-4 w-4" />
+                              </Button>
+                            </div>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
               </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    </TabsContent>
+            </CardContent>
+          </Card>
+        </TabsContent>
 
-    <TabsContent value="royalty" className="space-y-4">
-      <Card>
-        <CardHeader className="pb-3">
-          <div className="flex items-center justify-between">
-            <CardTitle>Royalty Payments</CardTitle>
-            <Button
-              onClick={() => toast({ title: "Generate Invoice", description: "Generating royalty invoices" })}
-            >
-              <Plus className="mr-2 h-4 w-4" /> Generate Invoices
-            </Button>
-          </div>
-          <CardDescription>Track and manage royalty payments from franchises</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="flex items-center space-x-2 mb-4">
-            <div className="flex-1 flex space-x-2">
-              <Input
-                placeholder="Search royalty payments..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <Button variant="outline" onClick={() => handleSearch("royalty")}>
-                <Search className="h-4 w-4 mr-2" /> Search
-              </Button>
+        <TabsContent value="royalty" className="space-y-4">
+          <Card>
+            <CardHeader className="pb-3">
+              <div className="flex items-center justify-between">
+                <CardTitle>Royalty Payments</CardTitle>
+                <Button
                   onClick={() => toast({ title: "Generate Invoice", description: "Generating royalty invoices" })}
                 >
                   <Plus className="mr-2 h-4 w-4" /> Generate Invoices
@@ -364,8 +344,8 @@ export default function FranchisePage() {
               <CardDescription>Track and manage royalty payments from franchises</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="flex-1 flex space-x-2">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
+                <div className="flex-1 flex gap-2">
                   <Input
                     placeholder="Search royalty payments..."
                     value={searchTerm}
@@ -388,76 +368,75 @@ export default function FranchisePage() {
                 </Select>
               </div>
 
-              <div className="rounded-md border">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>ID</TableHead>
-                      <TableHead>Franchise Name</TableHead>
-                      <TableHead>Month</TableHead>
-                      <TableHead>Revenue</TableHead>
-                      <TableHead>Royalty Amount</TableHead>
-                      <TableHead>Status</TableHead>
-                      <TableHead>Payment Date</TableHead>
-                      <TableHead>Actions</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {filteredRoyalties.map((royalty) => (
-                      <TableRow key={royalty.id}>
-                        <TableCell className="font-medium">{royalty.id}</TableCell>
-                        <TableCell>{royalty.franchiseName}</TableCell>
-                        <TableCell>{royalty.month}</TableCell>
-                        <TableCell>₹{royalty.revenue.toLocaleString()}</TableCell>
-                        <TableCell>₹{royalty.royaltyAmount.toLocaleString()}</TableCell>
-                        <TableCell>
-                          <span
-                            className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
-                              royalty.status === "Paid"
-                                ? "bg-green-100 text-green-800"
-                                : royalty.status === "Pending"
-                                  ? "bg-yellow-100 text-yellow-800"
-                                  : "bg-red-100 text-red-800"
-                            }`}
-                          >
-                            {royalty.status}
-                          </span>
-                        </TableCell>
-                        <TableCell>{royalty.paymentDate}</TableCell>
-                        <TableCell>
-                          <div className="flex space-x-1">
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              onClick={() => handleAction("View", royalty, "royalty payment")}
+              <div className="overflow-x-auto">
+                <div className="rounded-md border min-w-[700px]">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>ID</TableHead>
+                        <TableHead>Franchise Name</TableHead>
+                        <TableHead>Month</TableHead>
+                        <TableHead>Revenue</TableHead>
+                        <TableHead>Royalty Amount</TableHead>
+                        <TableHead>Status</TableHead>
+                        <TableHead>Payment Date</TableHead>
+                        <TableHead>Actions</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {filteredRoyalties.map((royalty) => (
+                        <TableRow key={royalty.id}>
+                          <TableCell className="font-medium">{royalty.id}</TableCell>
+                          <TableCell>{royalty.franchiseName}</TableCell>
+                          <TableCell>{royalty.month}</TableCell>
+                          <TableCell>₹{royalty.revenue.toLocaleString()}</TableCell>
+                          <TableCell>₹{royalty.royaltyAmount.toLocaleString()}</TableCell>
+                          <TableCell>
+                            <span
+                              className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
+                                royalty.status === "Paid"
+                                  ? "bg-green-100 text-green-800"
+                                  : royalty.status === "Pending"
+                                    ? "bg-yellow-100 text-yellow-800"
+                                    : "bg-red-100 text-red-800"
+                              }`}
                             >
-                              <Eye className="h-4 w-4" />
-                            </Button>
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              onClick={() => handleAction("Download", royalty, "invoice")}
-                            >
-                              <Download className="h-4 w-4" />
-                            </Button>
-                            {royalty.status === "Pending" && (
+                              {royalty.status}
+                            </span>
+                          </TableCell>
+                          <TableCell>{royalty.paymentDate}</TableCell>
+                          <TableCell>
+                            <div className="flex space-x-1">
                               <Button
                                 variant="ghost"
                                 size="icon"
-                                onClick={() => handleAction("Record", royalty, "payment")}
+                                onClick={() => handleAction("View", royalty, "royalty payment")}
                               >
-                                <DollarSign className="h-4 w-4" />
+                                <Eye className="h-4 w-4" />
                               </Button>
-                            )}
-                          </div>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </div>
-            </div>
-              </div>
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={() => handleAction("Download", royalty, "invoice")}
+                              >
+                                <Download className="h-4 w-4" />
+                              </Button>
+                              {royalty.status === "Pending" && (
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  onClick={() => handleAction("Record", royalty, "payment")}
+                                >
+                                  <DollarSign className="h-4 w-4" />
+                                </Button>
+                              )}
+                            </div>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -466,7 +445,7 @@ export default function FranchisePage() {
         <TabsContent value="onboarding" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>Franchise Onboarding & Compliance</CardTitle>
+              <CardTitle>Franchise Onboarding &amp; Compliance</CardTitle>
               <CardDescription>Manage onboarding processes and compliance requirements</CardDescription>
             </CardHeader>
             <CardContent>

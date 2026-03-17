@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogClose } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { arrayToCsv, downloadCsv } from "@/lib/csv"
+import { arrayToCsv, downloadCsv, parseCsv } from "@/lib/csv"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { EllipsisVertical } from "lucide-react"
 
@@ -89,7 +89,8 @@ export default function ParentsPage() {
   }
   const onDelete = (id: string) => setRows((prev) => prev.filter((p) => p.id !== id))
   const onExport = () => downloadCsv("parents.csv", arrayToCsv(rows))
-  const onImport = (rowsCsv: Record<string, string>[]) => {
+  const onImport = (text: string) => {
+    const rowsCsv = parseCsv<Record<string, string>>(text)
     const mapped: Parent[] = rowsCsv.map((r) => ({
       id: r.id || `P-${Math.floor(200 + Math.random() * 900)}`,
       name: r.name || "",

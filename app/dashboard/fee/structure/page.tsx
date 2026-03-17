@@ -369,9 +369,9 @@ export default function FeeStructurePage() {
                       </TableBody>
                     </Table>
                   </div>
+                  </div>
                   )}
               </div>
-            </div>
             </CardContent>
           </Card>
         </TabsContent>

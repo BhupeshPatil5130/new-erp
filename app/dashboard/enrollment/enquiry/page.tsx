@@ -138,7 +138,7 @@ export default function EnquiryPage() {
       } else {
         toast({
           title: "Error",
-          description: response.error || "Failed to update enquiry",
+          description: "Failed to update enquiry",
           variant: "destructive",
         })
       }
@@ -173,7 +173,7 @@ export default function EnquiryPage() {
       } else {
         toast({
           title: "Error",
-          description: response.error || "Failed to delete enquiry",
+          description: "Failed to delete enquiry",
           variant: "destructive",
         })
       }
@@ -208,7 +208,7 @@ export default function EnquiryPage() {
       } else {
         toast({
           title: "Error",
-          description: response.error || "Failed to record follow-up",
+          description: "Failed to record follow-up",
           variant: "destructive",
         })
       }

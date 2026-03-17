@@ -16,7 +16,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
-import { ModuleShell, type ModuleColumn } from "@/components/module-shell"
+import { ModuleShell, type Column } from "@/components/module-shell"
 import { exportToCsv, parseCsv } from "@/lib/csv"
 
 type Status = "Active" | "Inactive"
@@ -90,7 +90,7 @@ export default function StudentsPage() {
     })
   }, [rows, search, statusFilter, classFilter])
 
-  const columns: ModuleColumn<StudentRecord>[] = [
+  const columns: Column<StudentRecord>[] = [
     { key: "name", header: "Student" },
     { key: "class", header: "Class" },
     { key: "section", header: "Section" },

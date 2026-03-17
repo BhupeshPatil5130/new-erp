@@ -209,8 +209,6 @@ export default function FranchiseTypePage() {
           </Table>
               </div>
             </div>
-        </div>
-        </div>
         </CardContent>
       </Card>
     </div>

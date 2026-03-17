@@ -238,7 +238,6 @@ export default function FeeCardDetailsPage() {
             </TableBody>
           </Table>
         </div>
-        </div>
         </CardContent>
       </Card>
 

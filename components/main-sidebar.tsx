@@ -263,10 +263,10 @@ export function MainSidebar() {
 
   const buildCorporateNav = (): NavItem[] => {
     // Deep copy
-    const items = baseCorporateNav.map((i) => ({
+    const items: NavItem[] = baseCorporateNav.map((i) => ({
       ...i,
       submenu: i.submenu ? i.submenu.map((s) => ({ ...s })) : undefined,
-    }))
+    } as NavItem))
 
     // Ensure "Account" section exists with "Tally Bridge"
     let account = items.find((i) => i.title === "Account")
@@ -355,10 +355,10 @@ export function MainSidebar() {
   }
 
   const buildBranchNav = (): NavItem[] => {
-    const items = baseBranchNavItems.map((i) => ({
+    const items: NavItem[] = baseBranchNavItems.map((i) => ({
       ...i,
       submenu: i.submenu ? i.submenu.map((s) => ({ ...s })) : undefined,
-    }))
+    } as NavItem))
 
     // Suryadhi Learning Private (branch) extras
     if (currentInstitute?.id === "suryadhi-learning") {

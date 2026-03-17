@@ -206,7 +206,6 @@ export default function DamageShortagePage() {
                 </TableBody>
               </Table>
             </div>
-            </div>
             </CardContent>
           </Card>
         </TabsContent>

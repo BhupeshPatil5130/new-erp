@@ -205,7 +205,5 @@ export default function InvoiceDetailsPage() {
             </CardContent>
           </Card>
         </div>
-      </div>
-    </div>
   )
 }

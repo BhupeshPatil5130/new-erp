@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogClose } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { arrayToCsv, downloadCsv } from "@/lib/csv"
+import { arrayToCsv, downloadCsv, parseCsv} from "@/lib/csv"
 import { EllipsisVertical } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Badge } from "@/components/ui/badge"
@@ -98,7 +98,8 @@ export default function BrandAdsPage() {
     downloadCsv("brand_ads.csv", arrayToCsv(rows))
   }
   
-  const onImport = (rowsCsv: Record<string, string>[]) => {
+  const onImport = (text: string) => {
+    const rowsCsv = parseCsv<Record<string, string>>(text)
     if (!rowsCsv || rowsCsv.length === 0) return
     
     const mapped: Campaign[] = rowsCsv.map((r) => ({
@@ -132,13 +133,18 @@ export default function BrandAdsPage() {
         search={search}
         onSearchChange={setSearch}
         filters={[
-          { label: "All", value: "all" },
-          { label: "Active", value: "active" },
-          { label: "Paused", value: "paused" },
-          { label: "Draft", value: "draft" },
+          {
+            label: "Status",
+            key: "status",
+            options: [
+              { label: "All", value: "all" },
+              { label: "Active", value: "active" },
+              { label: "Paused", value: "paused" },
+              { label: "Draft", value: "draft" },
+            ],
+            onChange: (v) => setFilter(v as typeof filter),
+          },
         ]}
-        filterValue={filter}
-        onFilterChange={(v) => setFilter(v as typeof filter)}
         onAdd={onAdd}
         onExport={onExport}
         onImport={onImport}

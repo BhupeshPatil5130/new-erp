@@ -198,7 +198,6 @@ export default function StaticDataPage() {
                 </TableBody>
               </Table>
             </div>
-            </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -262,7 +261,6 @@ export default function StaticDataPage() {
                   ))}
                 </TableBody>
               </Table>
-            </div>
             </div>
             </CardContent>
           </Card>
@@ -329,7 +327,6 @@ export default function StaticDataPage() {
                   ))}
                 </TableBody>
               </Table>
-            </div>
             </div>
             </CardContent>
           </Card>

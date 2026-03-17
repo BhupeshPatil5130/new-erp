@@ -388,30 +388,30 @@ const auditLogsData = [
 
 // Brand-specific data for Unix Global Preschool
 const unixGlobalData = {
-  enquiries: [],
-  staff: [],
-  admissions: [],
+  enquiries: [] as any[],
+  staff: [] as any[],
+  admissions: [] as any[],
 }
 
 // Brand-specific data for Utopia World Preschool
 const utopiaWorldData = {
-  enquiries: [],
-  staff: [],
-  admissions: [],
+  enquiries: [] as any[],
+  staff: [] as any[],
+  admissions: [] as any[],
 }
 
 // Brand-specific data for Utopia Global School
 const utopiaGlobalData = {
-  enquiries: [],
-  staff: [],
-  admissions: [],
+  enquiries: [] as any[],
+  staff: [] as any[],
+  admissions: [] as any[],
 }
 
 // Brand-specific data for Suryadhi Learning
 const suryadhiLearningData = {
-  enquiries: [],
-  staff: [],
-  admissions: [],
+  enquiries: [] as any[],
+  staff: [] as any[],
+  admissions: [] as any[],
 }
 
 // Function to get brand-specific data
@@ -1035,7 +1035,7 @@ export const updateBrandPermission = async (brandId: string, module: string, ena
   await new Promise((resolve) => setTimeout(resolve, 500))
   const brand = allBrandsData.find((b) => b.id === brandId)
   if (brand) {
-    brand.permissions[module] = enabled
+    (brand.permissions as Record<string, boolean>)[module] = enabled
     return { success: true, data: brand.permissions }
   }
   return { success: false, error: "Brand not found" }

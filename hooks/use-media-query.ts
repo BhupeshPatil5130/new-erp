@@ -24,10 +24,8 @@ export function useMediaQuery(query: string) {
       mql.addEventListener("change", handler)
       return () => mql.removeEventListener("change", handler)
     } else {
-      // @ts-expect-error legacy API
-      mql.addListener(handler)
-      // @ts-expect-error legacy API
-      return () => mql.removeListener(handler)
+          mql.addListener(handler)
+          return () => mql.removeListener(handler)
     }
   }, [query])
 

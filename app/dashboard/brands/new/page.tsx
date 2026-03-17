@@ -54,7 +54,7 @@ export default function NewBrandPage() {
         })
         router.push("/dashboard/brands")
       } else {
-        throw new Error(response.error || "Failed to create brand")
+        throw new Error("Failed to create brand")
       }
     } catch (error) {
       toast({

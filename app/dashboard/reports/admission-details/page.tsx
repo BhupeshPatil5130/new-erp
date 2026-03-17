@@ -269,7 +269,6 @@ export default function AdmissionDetailsPage() {
                 </TableBody>
               </Table>
             </div>
-            </div>
             </CardContent>
           </Card>
         </TabsContent>

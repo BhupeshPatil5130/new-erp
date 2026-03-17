@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useRouter } from "next/navigation"
+import { useRouter, useParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -10,8 +10,10 @@ import { useToast } from "@/hooks/use-toast"
 import { ArrowLeft, Download, Edit, Printer, Star, StarHalf, Loader2 } from "lucide-react"
 import { getStaffAssessmentById } from "@/lib/api-service"
 
-export default function StaffAssessmentDetailPage({ params }: { params: { id: string } }) {
+export default function StaffAssessmentDetailPage() {
   const router = useRouter()
+  const params = useParams()
+  const id = params.id as string
   const { toast } = useToast()
   const [loading, setLoading] = useState(true)
   const [assessment, setAssessment] = useState<any>(null)
@@ -20,7 +22,7 @@ export default function StaffAssessmentDetailPage({ params }: { params: { id: st
   useEffect(() => {
     const fetchAssessment = async () => {
       try {
-        const response = await getStaffAssessmentById(params.id)
+        const response = await getStaffAssessmentById(id)
         if (response.success) {
           setAssessment(response.data)
         } else {
@@ -43,7 +45,7 @@ export default function StaffAssessmentDetailPage({ params }: { params: { id: st
     }
 
     fetchAssessment()
-  }, [params.id, toast])
+  }, [id, toast])
 
   const handleEditAssessment = () => {
     toast({
@@ -51,7 +53,7 @@ export default function StaffAssessmentDetailPage({ params }: { params: { id: st
       description: "Navigating to edit assessment form",
     })
     // In a real app, this would navigate to an edit form
-    router.push(`/dashboard/staff/assessment/${params.id}/edit`)
+    router.push(`/dashboard/staff/assessment/${id}/edit`)
   }
 
   const handlePrintAssessment = () => {
