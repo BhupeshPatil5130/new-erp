@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Input } from "@/components/ui/input"
-import { Search, FileDown, Filter, Eye, Download } from "lucide-react"
+import { Search, FileDown, Filter, Eye, Download , MoreVertical } from "lucide-react"
 import { Edit, Trash } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import {
@@ -19,6 +19,13 @@ import {
 } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 
 // Mock data for payment details
 const onlinePayments = [
@@ -253,11 +260,11 @@ export default function PaymentDetailPage() {
       </div>
 
       <Tabs defaultValue="online" className="space-y-4" onValueChange={(value) => handleSearch(value)}>
-        <TabsList>
+        <div className="overflow-x-auto pb-1"><TabsList className="w-max">
           <TabsTrigger value="online">Online Payments</TabsTrigger>
           <TabsTrigger value="cash">Cash Payments</TabsTrigger>
           <TabsTrigger value="cheque">Cheque Payments</TabsTrigger>
-        </TabsList>
+        </TabsList></div>
 
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
           <div className="flex-1 flex items-center gap-2">
@@ -265,7 +272,7 @@ export default function PaymentDetailPage() {
               placeholder="Search by name, ID, transaction ID..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="max-w-md"
+              className="flex-1 min-w-0"
             />
             <Button variant="outline" onClick={() => handleSearch("all")}>
               <Search className="h-4 w-4 mr-2" /> Search
@@ -323,7 +330,28 @@ export default function PaymentDetailPage() {
                         </div>
                       </TableCell>
                       <TableCell>
-                        <Button variant="ghost" size="sm" onClick={() => handleViewPayment(payment)}>
+                              <div className="flex sm:hidden">
+                                <DropdownMenu>
+                                  <DropdownMenuTrigger asChild>
+                                    <Button variant="ghost" size="icon">
+                                      <MoreVertical className="h-4 w-4" />
+                                    </Button>
+                                  </DropdownMenuTrigger>
+                                  <DropdownMenuContent align="end">
+                                    <DropdownMenuItem>
+                                      <Eye className="mr-2 h-4 w-4" /> Eye
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                      <Edit className="mr-2 h-4 w-4" /> Edit
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem className="text-red-600">
+                                      <Trash className="mr-2 h-4 w-4" /> Trash
+                                    </DropdownMenuItem>
+                                  </DropdownMenuContent>
+                                </DropdownMenu>
+                              </div>
+                              <div className="hidden sm:flex gap-1">
+                                <Button variant="ghost" size="sm" onClick={() => handleViewPayment(payment)}>
                           <Eye className="h-4 w-4 mr-1" /> View
                         </Button>
                         <Button variant="ghost" size="sm" onClick={() => handleEditPayment(payment)}>
@@ -337,7 +365,8 @@ export default function PaymentDetailPage() {
                         >
                           <Trash className="h-4 w-4 mr-1" /> Delete
                         </Button>
-                      </TableCell>
+                              </div>
+                            </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -377,13 +406,32 @@ export default function PaymentDetailPage() {
                       <TableCell>{payment.date}</TableCell>
                       <TableCell>{payment.receiptNo}</TableCell>
                       <TableCell>
-                        <Button variant="ghost" size="sm">
+                              <div className="flex sm:hidden">
+                                <DropdownMenu>
+                                  <DropdownMenuTrigger asChild>
+                                    <Button variant="ghost" size="icon">
+                                      <MoreVertical className="h-4 w-4" />
+                                    </Button>
+                                  </DropdownMenuTrigger>
+                                  <DropdownMenuContent align="end">
+                                    <DropdownMenuItem>
+                                      <Eye className="mr-2 h-4 w-4" /> Eye
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                      <Download className="mr-2 h-4 w-4" /> Download
+                                    </DropdownMenuItem>
+                                  </DropdownMenuContent>
+                                </DropdownMenu>
+                              </div>
+                              <div className="hidden sm:flex gap-1">
+                                <Button variant="ghost" size="sm">
                           <Eye className="h-4 w-4 mr-1" /> View
                         </Button>
                         <Button variant="ghost" size="sm">
                           <Download className="h-4 w-4 mr-1" /> Receipt
                         </Button>
-                      </TableCell>
+                              </div>
+                            </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

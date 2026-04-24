@@ -8,9 +8,15 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Search, FileDown, Eye, Plus, ShoppingCart, Check, Trash } from "lucide-react"
+import { Search, FileDown, Eye, Plus, ShoppingCart, Check, Trash , MoreVertical } from "lucide-react"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import {
   Dialog,
   DialogContent,
@@ -154,11 +160,11 @@ export default function PurchaseOrderPage() {
       </div>
 
       <Tabs defaultValue="orders" className="space-y-4">
-        <TabsList>
+        <div className="overflow-x-auto pb-1"><TabsList className="w-max">
           <TabsTrigger value="orders">Purchase Orders</TabsTrigger>
           <TabsTrigger value="suppliers">Suppliers</TabsTrigger>
           <TabsTrigger value="create">Create New Order</TabsTrigger>
-        </TabsList>
+        </TabsList></div>
 
         <TabsContent value="orders" className="space-y-4">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
@@ -167,7 +173,7 @@ export default function PurchaseOrderPage() {
                 placeholder="Search by PO ID, supplier, items..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="max-w-md"
+                className="flex-1 min-w-0"
               />
               <Button variant="outline" onClick={handleSearch}>
                 <Search className="h-4 w-4 mr-2" /> Search
@@ -237,28 +243,62 @@ export default function PurchaseOrderPage() {
                         </div>
                       </TableCell>
                       <TableCell>
-                        <Button variant="ghost" size="sm" onClick={() => handleViewPO(po)}>
-                          <Eye className="h-4 w-4 mr-1" /> View
-                        </Button>
-                        {po.status === "Pending" && (
-                          <Button variant="ghost" size="sm" onClick={() => handleEditPO(po)}>
-                            Edit
-                          </Button>
-                        )}
-                        {po.status === "Shipped" && (
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className="text-green-600"
-                            onClick={() => handleMarkDelivered(po)}
-                          >
-                            <Check className="h-4 w-4 mr-1" /> Mark Delivered
-                          </Button>
-                        )}
-                        <Button variant="ghost" size="sm" className="text-red-600" onClick={() => handleDeletePO(po)}>
-                          <Trash className="h-4 w-4 mr-1" /> Delete
-                        </Button>
-                      </TableCell>
+                              <div className="flex sm:hidden">
+                                <DropdownMenu>
+                                  <DropdownMenuTrigger asChild>
+                                    <Button variant="ghost" size="icon">
+                                      <MoreVertical className="h-4 w-4" />
+                                    </Button>
+                                  </DropdownMenuTrigger>
+                                  <DropdownMenuContent align="end">
+                                    <DropdownMenuItem>
+                                      <Eye className="mr-2 h-4 w-4" /> Eye
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                      <Eye className="mr-2 h-4 w-4" /> Eye
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                      <Check className="mr-2 h-4 w-4" /> Check
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem className="text-red-600">
+                                      <Trash className="mr-2 h-4 w-4" /> Trash
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                      <Eye className="mr-2 h-4 w-4" /> Eye
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                      <Eye className="mr-2 h-4 w-4" /> Eye
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                      <Eye className="mr-2 h-4 w-4" /> Eye
+                                    </DropdownMenuItem>
+                                  </DropdownMenuContent>
+                                </DropdownMenu>
+                              </div>
+                              <div className="hidden sm:flex gap-1">
+                                <Button variant="ghost" size="sm" onClick={() => handleViewPO(po)}>
+                                  <Eye className="h-4 w-4 mr-1" /> View
+                                </Button>
+                                {po.status === "Pending" && (
+                                  <Button variant="ghost" size="sm" onClick={() => handleEditPO(po)}>
+                                    Edit
+                                  </Button>
+                                )}
+                                {po.status === "Shipped" && (
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    className="text-green-600"
+                                    onClick={() => handleMarkDelivered(po)}
+                                  >
+                                    <Check className="h-4 w-4 mr-1" /> Mark Delivered
+                                  </Button>
+                                )}
+                                <Button variant="ghost" size="sm" className="text-red-600" onClick={() => handleDeletePO(po)}>
+                                  <Trash className="h-4 w-4 mr-1" /> Delete
+                                </Button>
+                              </div>
+                            </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

@@ -506,10 +506,10 @@ export default function InventoryPage() {
       </div>
 
       <Tabs defaultValue="inventory" className="space-y-4" onValueChange={handleTabChange}>
-        <TabsList>
+        <div className="overflow-x-auto pb-1"><TabsList className="w-max">
           <TabsTrigger value="inventory">Inventory</TabsTrigger>
           <TabsTrigger value="purchase-orders">Purchase Orders</TabsTrigger>
-        </TabsList>
+        </TabsList></div>
 
         <TabsContent value="inventory" className="space-y-4">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
@@ -518,7 +518,7 @@ export default function InventoryPage() {
                 placeholder="Search inventory by name, ID, category..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="max-w-md"
+                className="flex-1 min-w-0"
               />
               <Button variant="outline" onClick={handleInventorySearch}>
                 <Search className="h-4 w-4 mr-2" /> Search
@@ -641,7 +641,7 @@ export default function InventoryPage() {
                 placeholder="Search purchase orders by ID, supplier..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="max-w-md"
+                className="flex-1 min-w-0"
               />
               <Button variant="outline" onClick={handlePOSearch}>
                 <Search className="h-4 w-4 mr-2" /> Search

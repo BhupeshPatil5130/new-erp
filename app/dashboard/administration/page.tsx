@@ -173,11 +173,11 @@ export default function AdministrationPage() {
       </div>
 
       <Tabs defaultValue="franchises" className="space-y-4">
-        <TabsList>
+        <div className="overflow-x-auto pb-1"><TabsList className="w-max">
           <TabsTrigger value="franchises">Franchises & Branches</TabsTrigger>
           <TabsTrigger value="roles">User Roles & Permissions</TabsTrigger>
           <TabsTrigger value="config">System Configuration</TabsTrigger>
-        </TabsList>
+        </TabsList></div>
 
         <TabsContent value="franchises" className="space-y-4">
           <Card>

@@ -431,7 +431,7 @@ export function MainSidebar() {
 
   const sidebar = (
     <>
-      <div className="flex flex-col h-16 border-b border-gray-200 px-4 bg-gradient-to-r from-primary-900 to-primary-800">
+      <div className="flex flex-col min-h-[4rem] shrink-0 border-b border-gray-200 px-4 bg-gradient-to-r from-primary-900 to-primary-800">
         <div className="flex items-center gap-3 py-2">
           <Avatar className="h-10 w-10 border-2 border-white/20">
             <AvatarImage
@@ -497,7 +497,7 @@ export function MainSidebar() {
                       </span>
                     </button>
                     {expandedItems[item.title] && (
-                      <ul className={cn("mt-1 space-y-1 pl-10", !isOpen && "hidden")}>
+                      <ul className={cn("mt-1 space-y-1 pl-8 sm:pl-10", !isOpen && "hidden")}>
                         {item.submenu.map((subItem, subIndex) => (
                           <li key={subIndex}>
                             <Link
@@ -568,7 +568,7 @@ export function MainSidebar() {
   return (
     <div
       className={cn(
-        "flex flex-col border-r border-gray-200 bg-white h-screen sticky top-0 shadow-lg",
+        "flex flex-col border-r border-gray-200 bg-white h-screen sticky top-0 shadow-lg shrink-0",
         isOpen ? "w-64" : "w-16",
         "transition-all duration-300 ease-in-out",
       )}

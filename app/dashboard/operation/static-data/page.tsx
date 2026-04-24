@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Search, Plus, Edit, Trash2 } from "lucide-react"
+import { Search, Plus, Edit, Trash2 , MoreVertical } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import {
   Dialog,
@@ -17,6 +17,13 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 
 // Mock data for courses
 const courseData = [
@@ -130,11 +137,11 @@ export default function StaticDataPage() {
       </div>
 
       <Tabs defaultValue="courses" className="space-y-4">
-        <TabsList>
+        <div className="overflow-x-auto pb-1"><TabsList className="w-max">
           <TabsTrigger value="courses">Courses</TabsTrigger>
           <TabsTrigger value="departments">Departments</TabsTrigger>
           <TabsTrigger value="subjects">Subjects</TabsTrigger>
-        </TabsList>
+        </TabsList></div>
 
         <TabsContent value="courses" className="space-y-4">
           <div className="flex items-center justify-between mb-4">
@@ -181,7 +188,25 @@ export default function StaticDataPage() {
                       <TableCell>{course.duration}</TableCell>
                       <TableCell>{course.type}</TableCell>
                       <TableCell>
-                        <Button variant="ghost" size="sm" onClick={() => handleEditItem(course, "course")}>
+                              <div className="flex sm:hidden">
+                                <DropdownMenu>
+                                  <DropdownMenuTrigger asChild>
+                                    <Button variant="ghost" size="icon">
+                                      <MoreVertical className="h-4 w-4" />
+                                    </Button>
+                                  </DropdownMenuTrigger>
+                                  <DropdownMenuContent align="end">
+                                    <DropdownMenuItem>
+                                      <Edit className="mr-2 h-4 w-4" /> Edit
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem className="text-red-600">
+                                      <Trash2 className="mr-2 h-4 w-4" /> Trash2
+                                    </DropdownMenuItem>
+                                  </DropdownMenuContent>
+                                </DropdownMenu>
+                              </div>
+                              <div className="hidden sm:flex gap-1">
+                                <Button variant="ghost" size="sm" onClick={() => handleEditItem(course, "course")}>
                           <Edit className="h-4 w-4 mr-1" /> Edit
                         </Button>
                         <Button
@@ -192,7 +217,8 @@ export default function StaticDataPage() {
                         >
                           <Trash2 className="h-4 w-4 mr-1" /> Delete
                         </Button>
-                      </TableCell>
+                              </div>
+                            </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -245,7 +271,25 @@ export default function StaticDataPage() {
                       <TableCell>{department.code}</TableCell>
                       <TableCell>{department.head}</TableCell>
                       <TableCell>
-                        <Button variant="ghost" size="sm" onClick={() => handleEditItem(department, "department")}>
+                              <div className="flex sm:hidden">
+                                <DropdownMenu>
+                                  <DropdownMenuTrigger asChild>
+                                    <Button variant="ghost" size="icon">
+                                      <MoreVertical className="h-4 w-4" />
+                                    </Button>
+                                  </DropdownMenuTrigger>
+                                  <DropdownMenuContent align="end">
+                                    <DropdownMenuItem>
+                                      <Edit className="mr-2 h-4 w-4" /> Edit
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem className="text-red-600">
+                                      <Trash2 className="mr-2 h-4 w-4" /> Trash2
+                                    </DropdownMenuItem>
+                                  </DropdownMenuContent>
+                                </DropdownMenu>
+                              </div>
+                              <div className="hidden sm:flex gap-1">
+                                <Button variant="ghost" size="sm" onClick={() => handleEditItem(department, "department")}>
                           <Edit className="h-4 w-4 mr-1" /> Edit
                         </Button>
                         <Button
@@ -256,7 +300,8 @@ export default function StaticDataPage() {
                         >
                           <Trash2 className="h-4 w-4 mr-1" /> Delete
                         </Button>
-                      </TableCell>
+                              </div>
+                            </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -311,7 +356,25 @@ export default function StaticDataPage() {
                       <TableCell>{subject.department}</TableCell>
                       <TableCell>{subject.credits}</TableCell>
                       <TableCell>
-                        <Button variant="ghost" size="sm" onClick={() => handleEditItem(subject, "subject")}>
+                              <div className="flex sm:hidden">
+                                <DropdownMenu>
+                                  <DropdownMenuTrigger asChild>
+                                    <Button variant="ghost" size="icon">
+                                      <MoreVertical className="h-4 w-4" />
+                                    </Button>
+                                  </DropdownMenuTrigger>
+                                  <DropdownMenuContent align="end">
+                                    <DropdownMenuItem>
+                                      <Edit className="mr-2 h-4 w-4" /> Edit
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem className="text-red-600">
+                                      <Trash2 className="mr-2 h-4 w-4" /> Trash2
+                                    </DropdownMenuItem>
+                                  </DropdownMenuContent>
+                                </DropdownMenu>
+                              </div>
+                              <div className="hidden sm:flex gap-1">
+                                <Button variant="ghost" size="sm" onClick={() => handleEditItem(subject, "subject")}>
                           <Edit className="h-4 w-4 mr-1" /> Edit
                         </Button>
                         <Button
@@ -322,7 +385,8 @@ export default function StaticDataPage() {
                         >
                           <Trash2 className="h-4 w-4 mr-1" /> Delete
                         </Button>
-                      </TableCell>
+                              </div>
+                            </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

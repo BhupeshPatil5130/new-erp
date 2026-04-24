@@ -330,13 +330,13 @@ export default function LSQEnquiryPage() {
       </div>
 
       <Tabs defaultValue="all" className="space-y-4">
-        <TabsList>
+        <div className="overflow-x-auto pb-1"><TabsList className="w-max">
           <TabsTrigger value="all">All Enquiries</TabsTrigger>
           <TabsTrigger value="new">New</TabsTrigger>
           <TabsTrigger value="contacted">Contacted</TabsTrigger>
           <TabsTrigger value="interested">Interested</TabsTrigger>
           <TabsTrigger value="converted">Converted</TabsTrigger>
-        </TabsList>
+        </TabsList></div>
 
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
           <div className="flex-1 flex items-center gap-2">
@@ -344,7 +344,7 @@ export default function LSQEnquiryPage() {
               placeholder="Search by name, ID, phone, email or source..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="max-w-md"
+              className="flex-1 min-w-0"
             />
             <Button variant="outline" onClick={handleSearch}>
               <Search className="h-4 w-4 mr-2" /> Search

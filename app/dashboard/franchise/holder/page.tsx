@@ -8,7 +8,14 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Search, Plus, Eye, Edit, Mail, Phone, MapPin } from "lucide-react"
+import { Search, Plus, Eye, Edit, Mail, Phone, MapPin , MoreVertical } from "lucide-react"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 
 // Mock data for franchise holders
 const franchiseHolderData = [
@@ -96,13 +103,13 @@ export default function FranchiseHolderPage() {
       </div>
 
       <Tabs defaultValue="all" className="space-y-4">
-        <TabsList>
+        <div className="overflow-x-auto pb-1"><TabsList className="w-max">
           <TabsTrigger value="all">All Holders</TabsTrigger>
           <TabsTrigger value="active">Active</TabsTrigger>
           <TabsTrigger value="inactive">Inactive</TabsTrigger>
           <TabsTrigger value="premium">Premium</TabsTrigger>
           <TabsTrigger value="standard">Standard</TabsTrigger>
-        </TabsList>
+        </TabsList></div>
 
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
           <div className="flex-1 flex items-center gap-2">
@@ -110,7 +117,7 @@ export default function FranchiseHolderPage() {
               placeholder="Search by name, ID, franchise..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="max-w-md"
+              className="flex-1 min-w-0"
             />
             <Button variant="outline" onClick={handleSearch}>
               <Search className="h-4 w-4 mr-2" /> Search
@@ -179,13 +186,32 @@ export default function FranchiseHolderPage() {
                       </div>
                     </TableCell>
                     <TableCell>
-                      <Button variant="ghost" size="sm" onClick={() => setSelectedHolder(holder.id)}>
+                              <div className="flex sm:hidden">
+                                <DropdownMenu>
+                                  <DropdownMenuTrigger asChild>
+                                    <Button variant="ghost" size="icon">
+                                      <MoreVertical className="h-4 w-4" />
+                                    </Button>
+                                  </DropdownMenuTrigger>
+                                  <DropdownMenuContent align="end">
+                                    <DropdownMenuItem>
+                                      <Eye className="mr-2 h-4 w-4" /> Eye
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                      <Edit className="mr-2 h-4 w-4" /> Edit
+                                    </DropdownMenuItem>
+                                  </DropdownMenuContent>
+                                </DropdownMenu>
+                              </div>
+                              <div className="hidden sm:flex gap-1">
+                                <Button variant="ghost" size="sm" onClick={() => setSelectedHolder(holder.id)}>
                         <Eye className="h-4 w-4 mr-1" /> View
                       </Button>
                       <Button variant="ghost" size="sm">
                         <Edit className="h-4 w-4 mr-1" /> Edit
                       </Button>
-                    </TableCell>
+                              </div>
+                            </TableCell>
                   </TableRow>
                 ))}
               </TableBody>

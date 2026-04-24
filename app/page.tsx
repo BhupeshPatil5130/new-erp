@@ -36,12 +36,12 @@ interface StatItemProps {
 }
 
 const StatItem = ({ value, label, icon: Icon }: StatItemProps) => (
-  <div className="flex flex-col items-center space-y-2 border-t pt-8">
-    <div className="rounded-full bg-secondary-100 p-2 mb-2">
-      <Icon className="h-6 w-6 text-secondary-600" />
+  <div className="flex flex-col items-center space-y-2 border-t pt-6">
+    <div className="rounded-full bg-secondary-100 p-2 mb-1">
+      <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-secondary-600" />
     </div>
-    <span className="text-5xl font-bold text-primary-700">{value}</span>
-    <span className="text-xl text-gray-600 text-center">{label}</span>
+    <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-700">{value}</span>
+    <span className="text-base sm:text-lg text-gray-600 text-center">{label}</span>
   </div>
 )
 
@@ -142,16 +142,13 @@ export default function LandingPage() {
       {/* Navigation */}
       <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur-sm shadow-sm">
         <div className="container flex h-16 items-center justify-between px-4">
-          <div className="flex items-center gap-2">
-            <div className="relative h-10 w-40">
-              <div className="flex items-center">
-                <span className="text-2xl font-bold text-primary-800">SURYADHI</span>
-                <div className="absolute -top-1 right-4">
-                  <div className="w-4 h-4 bg-accent-400 rounded-full"></div>
-                </div>
-              </div>
-              <span className="text-xs tracking-widest text-gray-500">LEARNING</span>
+          {/* Logo */}
+          <div className="flex flex-col">
+            <div className="flex items-center gap-1">
+              <span className="text-xl sm:text-2xl font-bold text-primary-800">SURYADHI</span>
+              <div className="w-3 h-3 bg-accent-400 rounded-full mb-3"></div>
             </div>
+            <span className="text-xs tracking-widest text-gray-500 -mt-1">LEARNING</span>
           </div>
 
           {/* Desktop nav */}
@@ -228,7 +225,7 @@ export default function LandingPage() {
               <Badge className="w-fit bg-secondary-100 text-secondary-700 hover:bg-secondary-200 px-3 py-1 text-sm">
                 Educational Excellence
               </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-primary-900">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-primary-900">
                 Empowering Schools for Success: Your Partner in{" "}
                 <span className="text-secondary-600">Educational Academic Solutions</span>
               </h1>
@@ -236,17 +233,17 @@ export default function LandingPage() {
                 Enhancing Education Through Comprehensive Services. Join our growing network of educational institutions
                 and be part of shaping the future of education in India.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/login">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link href="/login" className="w-full sm:w-auto">
                   <Button
                     size="lg"
-                    className="bg-gradient-to-r from-secondary-600 to-secondary-700 hover:from-secondary-700 hover:to-secondary-800"
+                    className="w-full sm:w-auto bg-gradient-to-r from-secondary-600 to-secondary-700 hover:from-secondary-700 hover:to-secondary-800"
                   >
                     Get Started <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
-                <Link href="#learn-more">
-                  <Button variant="outline" size="lg" className="border-accent-300 text-accent-700 hover:bg-accent-50">
+                <Link href="#learn-more" className="w-full sm:w-auto">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto border-accent-300 text-accent-700 hover:bg-accent-50">
                     Enquire Now
                   </Button>
                 </Link>
@@ -304,7 +301,7 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 mt-12 sm:mt-20">
             <StatItem value="25+" label="Years of Experience" icon={Clock} />
             <StatItem value="500+" label="Students Enrolled" icon={Users} />
             <StatItem value="10+" label="Schools by 2025" icon={Building2} />
@@ -320,7 +317,7 @@ export default function LandingPage() {
             <Badge className="bg-secondary-100 text-secondary-700 hover:bg-secondary-200 px-3 py-1 text-sm">
               OUR BRANDS
             </Badge>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary-900">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl text-primary-900">
               Explore Excellence: Our Educational Brands
             </h2>
             <p className="max-w-[800px] text-gray-600 md:text-lg">
@@ -361,8 +358,8 @@ export default function LandingPage() {
       {/* About Us Section */}
       <section id="about" className="w-full py-12 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[400px] w-full rounded-xl overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+            <div className="relative h-[260px] sm:h-[360px] lg:h-[400px] w-full rounded-xl overflow-hidden">
               <div className="absolute inset-0 bg-secondary-100 flex items-center justify-center">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-KYAj1gpJCO75Za0MxFyKwiezSx5kL2.png"
@@ -374,7 +371,7 @@ export default function LandingPage() {
             </div>
             <div className="space-y-6">
               <Badge className="w-fit bg-pink-100 text-pink-600 hover:bg-pink-200 px-3 py-1 text-sm">WHO ARE WE?</Badge>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-primary-900">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl text-primary-900">
                 We are an education management company promoting preschools, K12 schools and Teachers Training across
                 India.
               </h2>
@@ -423,7 +420,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             <FeatureCard
               icon={Brain}
               title="Student-Centric Educational Support"
@@ -537,7 +534,7 @@ export default function LandingPage() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <Badge className="bg-yellow-100 text-yellow-600 hover:bg-yellow-200 px-3 py-1 text-sm">TESTIMONIALS</Badge>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary-900">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl text-primary-900">
               What Our Partners Say
             </h2>
             <p className="max-w-[800px] text-gray-600 md:text-lg">
@@ -546,7 +543,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             <Testimonial
               name="Rajesh Kumar"
               role="Franchise Owner, Delhi"
@@ -617,15 +614,15 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="w-full py-12 bg-primary-900">
         <div className="container px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="space-y-4">
-              <div className="flex items-center">
-                <span className="text-2xl font-bold text-white">SURYADHI</span>
-                <div className="relative -top-1 right-0 ml-1">
-                  <div className="w-3 h-3 bg-accent-400 rounded-full"></div>
+              <div className="flex flex-col">
+                <div className="flex items-center gap-1">
+                  <span className="text-2xl font-bold text-white">SURYADHI</span>
+                  <div className="w-3 h-3 bg-accent-400 rounded-full mb-3"></div>
                 </div>
+                <span className="text-xs tracking-widest text-gray-400">LEARNING</span>
               </div>
-              <span className="text-xs tracking-widest text-gray-400">LEARNING</span>
               <p className="text-gray-400">
                 Transforming education across India through innovative solutions and comprehensive support.
               </p>

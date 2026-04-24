@@ -7,7 +7,14 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Search, FileDown, Eye, Download, Printer } from "lucide-react"
+import { Search, FileDown, Eye, Download, Printer , MoreVertical } from "lucide-react"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 
 // Mock data for fee cards
 const feeCardData = [
@@ -226,13 +233,32 @@ export default function FeeCardDetailsPage() {
                     </div>
                   </TableCell>
                   <TableCell>
-                    <Button variant="ghost" size="sm" onClick={() => setSelectedFeeCard(feeCard.id)}>
+                              <div className="flex sm:hidden">
+                                <DropdownMenu>
+                                  <DropdownMenuTrigger asChild>
+                                    <Button variant="ghost" size="icon">
+                                      <MoreVertical className="h-4 w-4" />
+                                    </Button>
+                                  </DropdownMenuTrigger>
+                                  <DropdownMenuContent align="end">
+                                    <DropdownMenuItem>
+                                      <Eye className="mr-2 h-4 w-4" /> Eye
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                      <Download className="mr-2 h-4 w-4" /> Download
+                                    </DropdownMenuItem>
+                                  </DropdownMenuContent>
+                                </DropdownMenu>
+                              </div>
+                              <div className="hidden sm:flex gap-1">
+                                <Button variant="ghost" size="sm" onClick={() => setSelectedFeeCard(feeCard.id)}>
                       <Eye className="h-4 w-4 mr-1" /> View
                     </Button>
                     <Button variant="ghost" size="sm">
                       <Download className="h-4 w-4 mr-1" /> Download
                     </Button>
-                  </TableCell>
+                              </div>
+                            </TableCell>
                 </TableRow>
               ))}
             </TableBody>

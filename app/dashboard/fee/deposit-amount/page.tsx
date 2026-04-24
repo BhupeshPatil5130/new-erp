@@ -49,7 +49,7 @@ export default function DepositAmountPage() {
               placeholder="Enter Student ID"
               value={studentId}
               onChange={(e) => setStudentId(e.target.value)}
-              className="max-w-md"
+              className="flex-1 min-w-0"
             />
             <Button onClick={handleStudentSearch}>
               <Search className="h-4 w-4 mr-2" /> Search
@@ -100,11 +100,13 @@ export default function DepositAmountPage() {
           </Card>
 
           <Tabs defaultValue="cash" className="space-y-4">
-            <TabsList>
+            <div className="overflow-x-auto pb-1">
+          <TabsList className="w-max">
               <TabsTrigger value="cash">Cash Payment</TabsTrigger>
               <TabsTrigger value="cheque">Cheque Payment</TabsTrigger>
               <TabsTrigger value="online">Online Payment</TabsTrigger>
             </TabsList>
+          </div>
 
             <TabsContent value="cash" className="space-y-4">
               <Card>

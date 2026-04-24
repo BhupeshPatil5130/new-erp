@@ -8,7 +8,14 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Search, Eye, Download, Calendar } from "lucide-react"
+import { Search, Eye, Download, Calendar , MoreVertical } from "lucide-react"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 
 // Mock data for admission details
 const admissionData = [
@@ -204,12 +211,12 @@ export default function AdmissionDetailsPage() {
       </Card>
 
       <Tabs defaultValue="all" className="space-y-4">
-        <TabsList>
+        <div className="overflow-x-auto pb-1"><TabsList className="w-max">
           <TabsTrigger value="all">All Admissions</TabsTrigger>
           <TabsTrigger value="active">Active</TabsTrigger>
           <TabsTrigger value="pending">Pending</TabsTrigger>
           <TabsTrigger value="cancelled">Cancelled</TabsTrigger>
-        </TabsList>
+        </TabsList></div>
 
         <TabsContent value="all" className="space-y-4">
           <Card>
@@ -257,13 +264,32 @@ export default function AdmissionDetailsPage() {
                         </div>
                       </TableCell>
                       <TableCell>
-                        <Button variant="ghost" size="sm">
+                              <div className="flex sm:hidden">
+                                <DropdownMenu>
+                                  <DropdownMenuTrigger asChild>
+                                    <Button variant="ghost" size="icon">
+                                      <MoreVertical className="h-4 w-4" />
+                                    </Button>
+                                  </DropdownMenuTrigger>
+                                  <DropdownMenuContent align="end">
+                                    <DropdownMenuItem>
+                                      <Eye className="mr-2 h-4 w-4" /> Eye
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                      <Download className="mr-2 h-4 w-4" /> Download
+                                    </DropdownMenuItem>
+                                  </DropdownMenuContent>
+                                </DropdownMenu>
+                              </div>
+                              <div className="hidden sm:flex gap-1">
+                                <Button variant="ghost" size="sm">
                           <Eye className="h-4 w-4 mr-1" /> View
                         </Button>
                         <Button variant="ghost" size="sm">
                           <Download className="h-4 w-4 mr-1" /> Details
                         </Button>
-                      </TableCell>
+                              </div>
+                            </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

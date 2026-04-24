@@ -9,8 +9,15 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useToast } from "@/hooks/use-toast"
-import { Eye, FileDown, Filter, Search, Plus, Star, StarHalf, Loader2 } from "lucide-react"
+import { Eye, FileDown, Filter, Search, Plus, Star, StarHalf, Loader2 , MoreVertical } from "lucide-react"
 import { getStaffAssessments } from "@/lib/api-service"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 
 export default function StaffAssessmentPage() {
   const router = useRouter()
@@ -161,13 +168,13 @@ export default function StaffAssessmentPage() {
       </div>
 
       <Tabs defaultValue="all" className="space-y-4" onValueChange={handleTabChange}>
-        <TabsList>
+        <div className="overflow-x-auto pb-1"><TabsList className="w-max">
           <TabsTrigger value="all">All Assessments</TabsTrigger>
           <TabsTrigger value="excellent">Excellent</TabsTrigger>
           <TabsTrigger value="good">Good</TabsTrigger>
           <TabsTrigger value="average">Average</TabsTrigger>
           <TabsTrigger value="needsImprovement">Needs Improvement</TabsTrigger>
-        </TabsList>
+        </TabsList></div>
 
         <div className="flex flex-col md:flex-row gap-4 mb-4">
           <div className="flex-1 flex items-center gap-2">
@@ -175,7 +182,7 @@ export default function StaffAssessmentPage() {
               placeholder="Search by name, ID or designation..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="max-w-md"
+              className="flex-1 min-w-0"
             />
             <Button variant="outline" onClick={handleSearch}>
               <Search className="h-4 w-4 mr-2" /> Search

@@ -8,8 +8,15 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Search, FileDown, ArrowRight, Eye } from "lucide-react"
+import { Search, FileDown, ArrowRight, Eye , MoreVertical } from "lucide-react"
 import { Textarea } from "@/components/ui/textarea"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 
 // Mock data for fund transfers
 const transferData = [
@@ -100,11 +107,11 @@ export default function FundTransferPage() {
       </div>
 
       <Tabs defaultValue="transfers" className="space-y-4">
-        <TabsList>
+        <div className="overflow-x-auto pb-1"><TabsList className="w-max">
           <TabsTrigger value="transfers">Transfer History</TabsTrigger>
           <TabsTrigger value="accounts">Accounts</TabsTrigger>
           <TabsTrigger value="new-transfer">New Transfer</TabsTrigger>
-        </TabsList>
+        </TabsList></div>
 
         <TabsContent value="transfers" className="space-y-4">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
@@ -113,7 +120,7 @@ export default function FundTransferPage() {
                 placeholder="Search by ID, account, reference..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="max-w-md"
+                className="flex-1 min-w-0"
               />
               <Button variant="outline" onClick={handleSearch}>
                 <Search className="h-4 w-4 mr-2" /> Search

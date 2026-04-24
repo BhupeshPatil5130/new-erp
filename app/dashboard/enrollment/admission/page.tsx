@@ -386,12 +386,12 @@ export default function AdmissionPage() {
       </div>
 
       <Tabs defaultValue="all" className="space-y-4" onValueChange={handleTabChange}>
-        <TabsList>
+        <div className="overflow-x-auto pb-1"><TabsList className="w-max">
           <TabsTrigger value="all">All Admissions</TabsTrigger>
           <TabsTrigger value="pending">Pending</TabsTrigger>
           <TabsTrigger value="approved">Approved</TabsTrigger>
           <TabsTrigger value="rejected">Rejected</TabsTrigger>
-        </TabsList>
+        </TabsList></div>
 
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
           <div className="flex-1 flex items-center gap-2">
@@ -399,7 +399,7 @@ export default function AdmissionPage() {
               placeholder="Search by name, ID, phone, email or course..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="max-w-md"
+              className="flex-1 min-w-0"
             />
             <Button variant="outline" onClick={handleSearch}>
               <Search className="h-4 w-4 mr-2" /> Search

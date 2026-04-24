@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Search, FileDown, Filter, Eye, RefreshCw, Edit, Trash } from "lucide-react"
+import { Search, FileDown, Filter, Eye, RefreshCw, Edit, Trash , MoreVertical } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import {
   Dialog,
@@ -18,6 +18,13 @@ import {
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 
 // Mock data for exchange orders
 const exchangeData = [
@@ -160,7 +167,7 @@ export default function ExchangeOrderPage() {
             placeholder="Search by ID, name, items..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="max-w-md"
+            className="flex-1 min-w-0"
           />
           <Button variant="outline" onClick={handleSearch}>
             <Search className="h-4 w-4 mr-2" /> Search

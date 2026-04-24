@@ -96,7 +96,7 @@ export default function DashboardPage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
+      <div className="flex items-center justify-center min-h-[200px] sm:min-h-[400px]">
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
       </div>
     )
@@ -109,10 +109,10 @@ export default function DashboardPage() {
         {/* Header */}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <Crown className="h-7 w-7 sm:h-8 sm:w-8 text-yellow-600 shrink-0" />
+            <Crown className="h-6 w-6 sm:h-8 sm:w-8 text-yellow-600 shrink-0" />
             <div>
-              <h1 className="text-2xl sm:text-3xl font-bold text-primary-900">Corporate Dashboard</h1>
-              <p className="text-gray-600 mt-1 text-sm">Manage all brands and monitor performance across the network</p>
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-900">Corporate Dashboard</h1>
+              <p className="text-gray-600 mt-1 text-xs sm:text-sm">Manage all brands and monitor performance across the network</p>
             </div>
           </div>
           <div className="flex items-center gap-2 flex-wrap">
@@ -127,7 +127,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
           <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-blue-50">
             <CardContent className="p-6 flex items-center justify-between">
               <div>
@@ -335,8 +335,8 @@ export default function DashboardPage() {
       {/* Header */}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-primary-900">Dashboard</h1>
-          <p className="text-gray-600 mt-1 text-sm">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-900">Dashboard</h1>
+          <p className="text-gray-600 mt-1 text-xs sm:text-sm">
             Welcome back! Here's what's happening at {currentInstitute?.name || "your institute"} today.
           </p>
         </div>
@@ -351,25 +351,25 @@ export default function DashboardPage() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
         {dashboardStats.map((stat, index) => (
           <Card key={index} className="border-0 shadow-lg bg-gradient-to-br from-white to-gray-50">
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium text-gray-600">{stat.title}</p>
-                  <p className="text-2xl font-bold text-primary-900 mt-1">{stat.value}</p>
-                  <div className="flex items-center mt-2">
+            <CardContent className="p-3 sm:p-5 md:p-6">
+              <div className="flex items-start justify-between gap-2">
+                <div className="min-w-0">
+                  <p className="text-xs sm:text-sm font-medium text-gray-600 truncate">{stat.title}</p>
+                  <p className="text-lg sm:text-2xl font-bold text-primary-900 mt-1 truncate">{stat.value}</p>
+                  <div className="flex flex-wrap items-center mt-1 gap-x-1">
                     <span
-                      className={`text-sm font-medium ${stat.changeType === "positive" ? "text-green-600" : "text-red-600"}`}
+                      className={`text-xs sm:text-sm font-medium ${stat.changeType === "positive" ? "text-green-600" : "text-red-600"}`}
                     >
                       {stat.change}
                     </span>
-                    <span className="text-sm text-gray-500 ml-1">from last month</span>
+                    <span className="text-xs text-gray-500 hidden sm:inline">from last month</span>
                   </div>
                 </div>
-                <div className={`p-3 rounded-xl bg-gradient-to-r ${stat.color}`}>
-                  <stat.icon className="h-6 w-6 text-white" />
+                <div className={`p-2 sm:p-3 rounded-xl bg-gradient-to-r ${stat.color} shrink-0`}>
+                  <stat.icon className="h-4 w-4 sm:h-6 sm:w-6 text-white" />
                 </div>
               </div>
             </CardContent>
@@ -385,7 +385,7 @@ export default function DashboardPage() {
             <CardDescription>Quick access to core operational modules</CardDescription>
           </CardHeader>
           <CardContent className="p-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
               {adminModules.map((m, idx) => (
                 <Link key={idx} href={m.href}>
                   <Card className="border border-gray-200 hover:shadow-md transition-all duration-200 cursor-pointer group">
@@ -420,7 +420,7 @@ export default function DashboardPage() {
           <CardDescription>Latest updates and activities in your institute</CardDescription>
         </CardHeader>
         <CardContent className="p-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {recentActivities.map((activity) => (
               <div key={activity.id} className="flex items-start space-x-3 p-4 rounded-lg border hover:shadow-sm">
                 <div className={`p-2 rounded-lg ${activity.color}`}>

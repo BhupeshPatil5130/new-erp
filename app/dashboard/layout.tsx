@@ -21,11 +21,11 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen bg-white">
+      <div className="flex min-h-screen bg-white overflow-x-hidden">
         <MainSidebar />
-        <div className="flex-1 flex flex-col min-w-0">
+        <div className="flex-1 flex flex-col min-w-0 overflow-x-hidden">
           <MainHeader />
-          <main className="flex-1 p-4 md:p-6">{children}</main>
+          <main className="flex-1 p-3 sm:p-4 md:p-6 overflow-x-auto">{children}</main>
         </div>
       </div>
     </SidebarProvider>

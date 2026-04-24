@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Plus, Search, FileDown, Filter, Edit, Trash, Eye, CheckCircle, Loader2 } from "lucide-react"
+import { Plus, Search, FileDown, Filter, Edit, Trash, Eye, CheckCircle, Loader2, MoreVertical } from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -18,6 +18,12 @@ import {
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import { useToast } from "@/hooks/use-toast"
 import { useRouter } from "next/navigation"
 import { getEnquiries, updateEnquiry, deleteEnquiry } from "@/lib/api-service"
@@ -360,7 +366,31 @@ export default function EnquiryPage() {
                               </div>
                             </TableCell>
                             <TableCell>
-                              <div className="flex space-x-1">
+                              {/* Mobile: dropdown; Desktop: icon row */}
+                              <div className="flex sm:hidden">
+                                <DropdownMenu>
+                                  <DropdownMenuTrigger asChild>
+                                    <Button variant="ghost" size="icon">
+                                      <MoreVertical className="h-4 w-4" />
+                                    </Button>
+                                  </DropdownMenuTrigger>
+                                  <DropdownMenuContent align="end">
+                                    <DropdownMenuItem onClick={() => { setSelectedEnquiry(enquiry); setIsViewDialogOpen(true) }}>
+                                      <Eye className="mr-2 h-4 w-4" /> View
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem onClick={() => { setSelectedEnquiry(enquiry); setIsEditDialogOpen(true) }}>
+                                      <Edit className="mr-2 h-4 w-4" /> Edit
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem onClick={() => { setSelectedEnquiry(enquiry); setIsFollowUpDialogOpen(true) }}>
+                                      <CheckCircle className="mr-2 h-4 w-4" /> Follow-up
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem className="text-red-600" onClick={() => { setSelectedEnquiry(enquiry); setIsDeleteDialogOpen(true) }}>
+                                      <Trash className="mr-2 h-4 w-4" /> Delete
+                                    </DropdownMenuItem>
+                                  </DropdownMenuContent>
+                                </DropdownMenu>
+                              </div>
+                              <div className="hidden sm:flex space-x-1">
                                 <Button
                                   variant="ghost"
                                   size="icon"

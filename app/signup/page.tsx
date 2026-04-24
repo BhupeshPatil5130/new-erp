@@ -57,16 +57,16 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-accent-50 via-white to-secondary-50 px-4 py-8">
-      <div className="absolute inset-0 bg-gradient-to-br from-accent-100/20 via-transparent to-secondary-100/20"></div>
-      <Card className="w-full max-w-md relative z-10 shadow-xl border-0 bg-white/95 backdrop-blur-sm">
+    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-accent-50 via-white to-secondary-50 px-4 py-8">
+      <div className="absolute inset-0 bg-gradient-to-br from-accent-100/20 via-transparent to-secondary-100/20 pointer-events-none"></div>
+      <Card className="w-full max-w-md mx-auto relative z-10 shadow-xl border-0 bg-white/95 backdrop-blur-sm">
         <CardHeader className="space-y-1 text-center">
           <div className="flex items-center justify-center mb-6">
             <div className="relative">
-              <div className="h-16 w-16 bg-gradient-to-br from-accent-600 to-secondary-600 rounded-2xl flex items-center justify-center shadow-lg">
-                <GraduationCap className="h-8 w-8 text-white" />
+              <div className="h-12 w-12 sm:h-16 sm:w-16 bg-gradient-to-br from-accent-600 to-secondary-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <GraduationCap className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
               </div>
-              <div className="absolute -top-1 -right-1 h-6 w-6 bg-primary-600 rounded-full flex items-center justify-center">
+              <div className="absolute -top-1 -right-1 h-5 w-5 sm:h-6 sm:w-6 bg-primary-600 rounded-full flex items-center justify-center">
                 <UserPlus className="h-3 w-3 text-white" />
               </div>
             </div>
@@ -145,6 +145,7 @@ export default function SignupPage() {
               <Input
                 id="phone"
                 type="tel"
+                inputMode="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 className="border-gray-300 focus:border-secondary-500 focus:ring-secondary-500"

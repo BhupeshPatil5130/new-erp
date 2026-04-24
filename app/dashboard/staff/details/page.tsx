@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Search, FileDown, Filter, Eye, UserPlus, Mail, Phone } from "lucide-react"
+import { Search, FileDown, Filter, Eye, UserPlus, Mail, Phone , MoreVertical } from "lucide-react"
 import { Edit, Trash } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import {
@@ -19,6 +19,13 @@ import {
 } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 
 // Mock data for staff details
 const staffData = [
@@ -140,12 +147,12 @@ export default function StaffDetailsPage() {
       </div>
 
       <Tabs defaultValue="all" className="space-y-4">
-        <TabsList>
+        <div className="overflow-x-auto pb-1"><TabsList className="w-max">
           <TabsTrigger value="all">All Staff</TabsTrigger>
           <TabsTrigger value="active">Active</TabsTrigger>
           <TabsTrigger value="on-leave">On Leave</TabsTrigger>
           <TabsTrigger value="former">Former Staff</TabsTrigger>
-        </TabsList>
+        </TabsList></div>
 
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center mb-4">
           <div className="flex-1 flex items-center gap-2">
@@ -153,7 +160,7 @@ export default function StaffDetailsPage() {
               placeholder="Search by name, ID, department, designation..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="max-w-md"
+              className="flex-1 min-w-0"
             />
             <Button variant="outline" onClick={handleSearch}>
               <Search className="h-4 w-4 mr-2" /> Search
@@ -220,7 +227,28 @@ export default function StaffDetailsPage() {
                         </div>
                       </TableCell>
                       <TableCell>
-                        <Button variant="ghost" size="sm" onClick={() => handleViewStaff(staff)}>
+                              <div className="flex sm:hidden">
+                                <DropdownMenu>
+                                  <DropdownMenuTrigger asChild>
+                                    <Button variant="ghost" size="icon">
+                                      <MoreVertical className="h-4 w-4" />
+                                    </Button>
+                                  </DropdownMenuTrigger>
+                                  <DropdownMenuContent align="end">
+                                    <DropdownMenuItem>
+                                      <Eye className="mr-2 h-4 w-4" /> Eye
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                      <Edit className="mr-2 h-4 w-4" /> Edit
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem className="text-red-600">
+                                      <Trash className="mr-2 h-4 w-4" /> Trash
+                                    </DropdownMenuItem>
+                                  </DropdownMenuContent>
+                                </DropdownMenu>
+                              </div>
+                              <div className="hidden sm:flex gap-1">
+                                <Button variant="ghost" size="sm" onClick={() => handleViewStaff(staff)}>
                           <Eye className="h-4 w-4 mr-1" /> View
                         </Button>
                         <Button variant="ghost" size="sm" onClick={() => handleEditStaff(staff)}>
@@ -234,7 +262,8 @@ export default function StaffDetailsPage() {
                         >
                           <Trash className="h-4 w-4 mr-1" /> Delete
                         </Button>
-                      </TableCell>
+                              </div>
+                            </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

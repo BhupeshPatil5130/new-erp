@@ -214,11 +214,11 @@ export default function FranchisePage() {
       </Card>
 
       <Tabs defaultValue="agreements" className="space-y-4">
-        <TabsList>
+        <div className="overflow-x-auto pb-1"><TabsList className="w-max">
           <TabsTrigger value="agreements">Agreements &amp; Licensing</TabsTrigger>
           <TabsTrigger value="royalty">Royalty Management</TabsTrigger>
           <TabsTrigger value="onboarding">Onboarding &amp; Compliance</TabsTrigger>
-        </TabsList>
+        </TabsList></div>
 
         <TabsContent value="agreements" className="space-y-4">
           <Card>

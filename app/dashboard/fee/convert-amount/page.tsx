@@ -15,11 +15,13 @@ export default function ConvertAmountPage() {
       </div>
 
       <Tabs defaultValue="cash-to-cheque" className="space-y-4">
-        <TabsList>
+        <div className="overflow-x-auto pb-1">
+          <TabsList className="w-max">
           <TabsTrigger value="cash-to-cheque">Cash to Cheque</TabsTrigger>
           <TabsTrigger value="cash-to-online">Cash to Online</TabsTrigger>
           <TabsTrigger value="cheque-to-online">Cheque to Online</TabsTrigger>
         </TabsList>
+          </div>
 
         <TabsContent value="cash-to-cheque" className="space-y-4">
           <Card>

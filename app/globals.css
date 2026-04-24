@@ -78,10 +78,21 @@
 
 /* ── Mobile / Responsive Globals ─────────────────────────── */
 
+/* Smooth anchor scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Prevent any element from causing horizontal page scroll */
 html, body {
   overflow-x: hidden;
   max-width: 100%;
+}
+
+/* Global image safety */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* All tables scroll horizontally when they overflow their container */
@@ -105,9 +116,11 @@ html, body {
   }
 }
 
-/* Better tap target sizing on mobile */
+/* Better tap target sizing on mobile — scoped to buttons only, NOT anchor links
+   (anchor links in navbars / breadcrumbs must not be forced to 40px height) */
 @media (max-width: 768px) {
-  button, [role="button"], a {
+  button, [role="button"] {
     min-height: 40px;
+    touch-action: manipulation;
   }
 }

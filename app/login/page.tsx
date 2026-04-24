@@ -13,11 +13,13 @@ import Link from "next/link"
 import { Building2, LogIn, GraduationCap, Crown } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
+const BLOB = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com"
+
 const institutes = [
   {
     id: "suryadhi-learning-hq",
     name: "Suryadhi Learning Pvt. Ltd",
-    logo: "/suryadhi_learning_logo.jpeg",
+    logo: `${BLOB}/suryadhi_learning_logo-0ATM1yTM1yTM1yTM1yTM1yTM1y.jpeg`,
     location: "Corporate Headquarters",
     type: "Corporate HQ",
     isHeadquarters: true,
@@ -25,7 +27,7 @@ const institutes = [
   {
     id: "unix-global",
     name: "Unix Global Preschool",
-    logo: "/unix_global_pre_school_color.jpeg",
+    logo: `${BLOB}/unix_global_pre_school_color-7XQJ8vQJ8vQJ8vQJ8vQJ8vQJ8v.jpeg`,
     location: "Mumbai, Maharashtra",
     type: "Preschool",
     isHeadquarters: false,
@@ -33,7 +35,7 @@ const institutes = [
   {
     id: "utopia-world",
     name: "Utopia World Preschool",
-    logo: "/utopia_world_pre_school_color.jpeg",
+    logo: `${BLOB}/utopia_world_pre_school_color-8YRK9wRK9wRK9wRK9wRK9wRK9w.jpeg`,
     location: "Pune, Maharashtra",
     type: "Preschool",
     isHeadquarters: false,
@@ -41,7 +43,7 @@ const institutes = [
   {
     id: "utopia-global",
     name: "Utopia Global School",
-    logo: "/utopia_global_school_color.jpeg",
+    logo: `${BLOB}/utopia_global_school_color-9ZSL0xSL0xSL0xSL0xSL0xSL0x.jpeg`,
     location: "Bangalore, Karnataka",
     type: "K12 School",
     isHeadquarters: false,
@@ -49,12 +51,13 @@ const institutes = [
   {
     id: "suryadhi-learning",
     name: "Suryadhi Learning Center",
-    logo: "/suryadhi_learning_logo.jpeg",
+    logo: `${BLOB}/suryadhi_learning_logo-0ATM1yTM1yTM1yTM1yTM1yTM1y.jpeg`,
     location: "Delhi, NCR",
     type: "Training Center",
     isHeadquarters: false,
   },
 ]
+
 
 export default function LoginPage() {
   const router = useRouter()
@@ -94,16 +97,16 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-secondary-50 via-white to-primary-50 px-4 py-8">
-      <div className="absolute inset-0 bg-gradient-to-br from-secondary-100/20 via-transparent to-accent-100/20"></div>
-      <Card className="w-full max-w-md relative z-10 shadow-xl border-0 bg-white/95 backdrop-blur-sm">
+    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-secondary-50 via-white to-primary-50 px-4 py-8">
+      <div className="absolute inset-0 bg-gradient-to-br from-secondary-100/20 via-transparent to-accent-100/20 pointer-events-none"></div>
+      <Card className="w-full max-w-md mx-auto relative z-10 shadow-xl border-0 bg-white/95 backdrop-blur-sm">
         <CardHeader className="space-y-1 text-center">
           <div className="flex items-center justify-center mb-6">
             <div className="relative">
-              <div className="h-16 w-16 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-2xl flex items-center justify-center shadow-lg">
-                <GraduationCap className="h-8 w-8 text-white" />
+              <div className="h-12 w-12 sm:h-16 sm:w-16 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <GraduationCap className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
               </div>
-              <div className="absolute -top-1 -right-1 h-6 w-6 bg-accent-500 rounded-full flex items-center justify-center">
+              <div className="absolute -top-1 -right-1 h-5 w-5 sm:h-6 sm:w-6 bg-accent-500 rounded-full flex items-center justify-center">
                 <Building2 className="h-3 w-3 text-white" />
               </div>
             </div>
