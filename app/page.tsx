@@ -252,43 +252,31 @@ export default function LandingPage() {
             <div className="relative hidden lg:block">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <div className="rounded-lg overflow-hidden shadow-lg">
-                    <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unix_global_pre_school_color-7XQJ8vQJ8vQJ8vQJ8vQJ8vQJ8v.jpeg"
-                      alt="Unix Global Preschool"
-                      width={200}
-                      height={150}
-                      className="w-full h-32 object-cover"
-                    />
+                  <div className="rounded-xl overflow-hidden shadow-lg border-2 border-secondary-200">
+                    <div className="w-full h-32 bg-gradient-to-br from-secondary-500 to-secondary-600 flex flex-col items-center justify-center text-white">
+                      <BookOpen className="h-8 w-8 mb-1" />
+                      <span className="text-xs font-bold text-center px-2">Suryadhi Preschool</span>
+                    </div>
                   </div>
-                  <div className="rounded-lg overflow-hidden shadow-lg">
-                    <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/utopia_world_pre_school_color-8YRK9wRK9wRK9wRK9wRK9wRK9w.jpeg"
-                      alt="Utopia World Preschool"
-                      width={200}
-                      height={150}
-                      className="w-full h-32 object-cover"
-                    />
+                  <div className="rounded-xl overflow-hidden shadow-lg border-2 border-accent-200">
+                    <div className="w-full h-32 bg-gradient-to-br from-accent-500 to-accent-600 flex flex-col items-center justify-center text-white">
+                      <Building2 className="h-8 w-8 mb-1" />
+                      <span className="text-xs font-bold text-center px-2">Suryadhi World Preschool</span>
+                    </div>
                   </div>
                 </div>
                 <div className="space-y-4 mt-8">
-                  <div className="rounded-lg overflow-hidden shadow-lg">
-                    <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/utopia_global_school_color-9ZSL0xSL0xSL0xSL0xSL0xSL0x.jpeg"
-                      alt="Utopia Global School"
-                      width={200}
-                      height={150}
-                      className="w-full h-32 object-cover"
-                    />
+                  <div className="rounded-xl overflow-hidden shadow-lg border-2 border-primary-200">
+                    <div className="w-full h-32 bg-gradient-to-br from-primary-500 to-primary-600 flex flex-col items-center justify-center text-white">
+                      <Brain className="h-8 w-8 mb-1" />
+                      <span className="text-xs font-bold text-center px-2">Suryadhi Global School</span>
+                    </div>
                   </div>
-                  <div className="rounded-lg overflow-hidden shadow-lg">
-                    <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/suryadhi_learning_logo-0ATM1yTM1yTM1yTM1yTM1yTM1y.jpeg"
-                      alt="Suryadhi Learning"
-                      width={200}
-                      height={150}
-                      className="w-full h-32 object-cover"
-                    />
+                  <div className="rounded-xl overflow-hidden shadow-lg border-2 border-green-200">
+                    <div className="w-full h-32 bg-gradient-to-br from-green-500 to-green-600 flex flex-col items-center justify-center text-white">
+                      <Users className="h-8 w-8 mb-1" />
+                      <span className="text-xs font-bold text-center px-2">Suryadhi Learning</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -328,28 +316,28 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <BrandCard
-              title="Unix Global Preschool"
+              title="Suryadhi Preschool"
               description="A chain of Premium Global Pre Schools with international standards and modern teaching methodologies."
               color="bg-gradient-to-br from-secondary-500 to-secondary-600"
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unix_global_pre_school_color-7XQJ8vQJ8vQJ8vQJ8vQJ8vQJ8v.jpeg"
+              icon={BookOpen}
             />
             <BrandCard
-              title="Utopia World Preschool"
+              title="Suryadhi World Preschool"
               description="A Pre School of International Standards that acts as feeders to our CBSE & ICSE schools."
               color="bg-gradient-to-br from-accent-500 to-accent-600"
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/utopia_world_pre_school_color-8YRK9wRK9wRK9wRK9wRK9wRK9w.jpeg"
+              icon={Building2}
             />
             <BrandCard
-              title="Utopia Global School"
+              title="Suryadhi Global School"
               description="A chain of CBSE and ICSE schools with Global Approach and Integrated Curriculum."
               color="bg-gradient-to-br from-primary-500 to-primary-600"
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/utopia_global_school_color-9ZSL0xSL0xSL0xSL0xSL0xSL0x.jpeg"
+              icon={Brain}
             />
             <BrandCard
               title="Suryadhi Learning"
               description="Comprehensive training programs for educators and educational management solutions."
               color="bg-gradient-to-br from-green-500 to-green-600"
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/suryadhi_learning_logo-0ATM1yTM1yTM1yTM1yTM1yTM1y.jpeg"
+              icon={Users}
             />
           </div>
         </div>
@@ -632,17 +620,17 @@ export default function LandingPage() {
               <ul className="space-y-2">
                 <li>
                   <Link href="#" className="text-gray-400 hover:text-white">
-                    Unix Global Preschool
+                    Suryadhi Preschool
                   </Link>
                 </li>
                 <li>
                   <Link href="#" className="text-gray-400 hover:text-white">
-                    Utopia World Preschool
+                    Suryadhi World Preschool
                   </Link>
                 </li>
                 <li>
                   <Link href="#" className="text-gray-400 hover:text-white">
-                    Utopia Global School
+                    Suryadhi Global School
                   </Link>
                 </li>
                 <li>

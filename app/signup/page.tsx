@@ -16,19 +16,19 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 const institutes = [
   {
     id: "unix-global",
-    name: "Unix Global Preschool",
+    name: "Suryadhi Preschool",
     logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unix_global_pre_school_color-7XQJ8vQJ8vQJ8vQJ8vQJ8vQJ8v.jpeg",
     location: "Mumbai, Maharashtra",
   },
   {
     id: "utopia-world",
-    name: "Utopia World Preschool",
+    name: "Suryadhi World Preschool",
     logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/utopia_world_pre_school_color-8YRK9wRK9wRK9wRK9wRK9wRK9w.jpeg",
     location: "Pune, Maharashtra",
   },
   {
     id: "utopia-global",
-    name: "Utopia Global School",
+    name: "Suryadhi Global School",
     logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/utopia_global_school_color-9ZSL0xSL0xSL0xSL0xSL0xSL0x.jpeg",
     location: "Bangalore, Karnataka",
   },

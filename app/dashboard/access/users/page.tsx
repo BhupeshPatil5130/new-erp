@@ -253,9 +253,9 @@ export default function UserManagementPage() {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="Suryadhi Learning Pvt. Ltd">Suryadhi Learning Pvt. Ltd</SelectItem>
-                    <SelectItem value="Unix Global Preschool">Unix Global Preschool</SelectItem>
-                    <SelectItem value="Utopia World Preschool">Utopia World Preschool</SelectItem>
-                    <SelectItem value="Utopia Global School">Utopia Global School</SelectItem>
+                    <SelectItem value="Suryadhi Preschool">Suryadhi Preschool</SelectItem>
+                    <SelectItem value="Suryadhi World Preschool">Suryadhi World Preschool</SelectItem>
+                    <SelectItem value="Suryadhi Global School">Suryadhi Global School</SelectItem>
                     <SelectItem value="Suryadhi Learning Center">Suryadhi Learning Center</SelectItem>
                   </SelectContent>
                 </Select>

@@ -72,10 +72,10 @@ export default function BrandAnalyticsPage() {
       customerSatisfaction: 4.7,
     },
     revenueByBrand: [
-      { name: "Utopia Global", revenue: 3750000, students: 1250, growth: 18.5 },
-      { name: "Unix Global", revenue: 1250000, students: 450, growth: 15.2 },
+      { name: "Suryadhi Global", revenue: 3750000, students: 1250, growth: 18.5 },
+      { name: "Suryadhi Global", revenue: 1250000, students: 450, growth: 15.2 },
       { name: "Suryadhi Learning", revenue: 2100000, students: 850, growth: 22.1 },
-      { name: "Utopia World", revenue: 1150000, students: 380, growth: 12.8 },
+      { name: "Suryadhi World", revenue: 1150000, students: 380, growth: 12.8 },
     ],
     monthlyTrends: [
       { month: "Jul", revenue: 7500000, students: 2800, enquiries: 450 },
@@ -108,7 +108,7 @@ export default function BrandAnalyticsPage() {
         efficiency: 92.1,
       },
       {
-        name: "Utopia Global",
+        name: "Suryadhi Global",
         growth: 18.5,
         revenue: 3750000,
         students: 1250,
@@ -116,7 +116,7 @@ export default function BrandAnalyticsPage() {
         efficiency: 89.3,
       },
       {
-        name: "Unix Global",
+        name: "Suryadhi Global",
         growth: 15.2,
         revenue: 1250000,
         students: 450,
@@ -124,7 +124,7 @@ export default function BrandAnalyticsPage() {
         efficiency: 85.7,
       },
       {
-        name: "Utopia World",
+        name: "Suryadhi World",
         growth: 12.8,
         revenue: 1150000,
         students: 380,

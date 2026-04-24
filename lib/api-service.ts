@@ -13,7 +13,7 @@ const getCurrentInstitute = () => {
 const allBrandsData = [
   {
     id: "unix-global",
-    name: "Unix Global Preschool",
+    name: "Suryadhi Preschool",
     logo: "/unix_global_pre_school_color.jpeg",
     type: "Preschool",
     location: "Mumbai, Maharashtra",
@@ -44,7 +44,7 @@ const allBrandsData = [
   },
   {
     id: "utopia-world",
-    name: "Utopia World Preschool",
+    name: "Suryadhi World Preschool",
     logo: "/utopia_world_pre_school_color.jpeg",
     type: "Preschool",
     location: "Pune, Maharashtra",
@@ -75,7 +75,7 @@ const allBrandsData = [
   },
   {
     id: "utopia-global",
-    name: "Utopia Global School",
+    name: "Suryadhi Global School",
     logo: "/utopia_global_school_color.jpeg",
     type: "K12 School",
     location: "Bangalore, Karnataka",
@@ -156,7 +156,7 @@ const usersData = [
     email: "rajesh.mehta@unixglobal.com",
     phone: "+91 98765 43211",
     role: "Branch Administrator",
-    brand: "Unix Global Preschool",
+    brand: "Suryadhi Preschool",
     isActive: true,
     lastLogin: "2024-01-15T09:15:00Z",
     avatar: "/placeholder.svg",
@@ -167,7 +167,7 @@ const usersData = [
     email: "priya.sharma@utopiaworld.com",
     phone: "+91 98765 43212",
     role: "Branch Administrator",
-    brand: "Utopia World Preschool",
+    brand: "Suryadhi World Preschool",
     isActive: true,
     lastLogin: "2024-01-14T16:45:00Z",
     avatar: "/placeholder.svg",
@@ -178,7 +178,7 @@ const usersData = [
     email: "ramesh.kumar@utopiaglobal.com",
     phone: "+91 98765 43213",
     role: "Branch Administrator",
-    brand: "Utopia Global School",
+    brand: "Suryadhi Global School",
     isActive: true,
     lastLogin: "2024-01-15T08:30:00Z",
     avatar: "/placeholder.svg",
@@ -386,21 +386,21 @@ const auditLogsData = [
   },
 ]
 
-// Brand-specific data for Unix Global Preschool
+// Brand-specific data for Suryadhi Preschool
 const unixGlobalData = {
   enquiries: [] as any[],
   staff: [] as any[],
   admissions: [] as any[],
 }
 
-// Brand-specific data for Utopia World Preschool
+// Brand-specific data for Suryadhi World Preschool
 const utopiaWorldData = {
   enquiries: [] as any[],
   staff: [] as any[],
   admissions: [] as any[],
 }
 
-// Brand-specific data for Utopia Global School
+// Brand-specific data for Suryadhi Global School
 const utopiaGlobalData = {
   enquiries: [] as any[],
   staff: [] as any[],
@@ -795,7 +795,7 @@ export const getDashboardStats = async () => {
           {
             id: 2,
             type: "permission_updated",
-            message: "Permissions updated for Unix Global Preschool",
+            message: "Permissions updated for Suryadhi Preschool",
             timestamp: "2024-01-15T09:15:00Z",
             user: "Vinit Bari",
           },
@@ -930,9 +930,9 @@ export async function getDashboardData(): Promise<DashboardData> {
         enquiry: 126,
       },
       brandPerformance: [
-        { id: "b1", name: "Unix Global Preschool", students: 1450, revenue: 18500000, growth: 12 },
-        { id: "b2", name: "Utopia World Preschool", students: 1100, revenue: 16000000, growth: 9 },
-        { id: "b3", name: "Utopia Global School", students: 1900, revenue: 25500000, growth: 15 },
+        { id: "b1", name: "Suryadhi Preschool", students: 1450, revenue: 18500000, growth: 12 },
+        { id: "b2", name: "Suryadhi World Preschool", students: 1100, revenue: 16000000, growth: 9 },
+        { id: "b3", name: "Suryadhi Global School", students: 1900, revenue: 25500000, growth: 15 },
         { id: "b4", name: "Suryadhi Learning Center", students: 375, revenue: 5500000, growth: 7 },
       ],
       recentActivities: [
@@ -940,7 +940,7 @@ export async function getDashboardData(): Promise<DashboardData> {
           id: "a1",
           type: "brand_added",
           title: "New Brand Onboarded",
-          description: "Utopia World Preschool added",
+          description: "Suryadhi World Preschool added",
           time: "1h ago",
         },
         {
@@ -993,7 +993,7 @@ export const getCorporateDashboardData = async () => {
           id: 1,
           type: "brand_added",
           title: "New Brand Added",
-          description: "Unix Global Preschool - Malad branch added",
+          description: "Suryadhi Preschool - Malad branch added",
           time: "2 hours ago",
           brandId: "unix-global",
         },
@@ -1001,7 +1001,7 @@ export const getCorporateDashboardData = async () => {
           id: 2,
           type: "permission_updated",
           title: "Permissions Updated",
-          description: "Utopia World Preschool permissions modified",
+          description: "Suryadhi World Preschool permissions modified",
           time: "4 hours ago",
           brandId: "utopia-world",
         },
