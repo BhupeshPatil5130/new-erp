@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Search, Plus, Edit, Trash2 , MoreVertical } from "lucide-react"
+import { Search, Plus, Edit, Trash2 , Eye, MoreVertical } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import {
   Dialog,
